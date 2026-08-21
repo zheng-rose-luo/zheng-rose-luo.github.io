@@ -36,12 +36,6 @@ def convert_md_to_html(md_path, css_path='../../css/style.css', back_to_root='..
     date = front_matter.get('date', '')
     excerpt = front_matter.get('excerpt', '')
     
-    # 判断文件在哪个子目录下，决定返回根目录的路径
-    # 如果是 posts/blog/xxx.md，返回 ../../
-    # 如果是 posts/notes/xxx.md，返回 ../../
-    # 如果是 posts/projects/xxx.md，返回 ../../
-    relative_root = back_to_root
-    
     # 判断当前文件类型
     if 'blog' in str(md_path):
         nav_link = '../../blog.html'
@@ -63,7 +57,10 @@ def convert_md_to_html(md_path, css_path='../../css/style.css', back_to_root='..
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} · Zheng LUO</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
-    <link rel="stylesheet" href="{relative_root}css/style.css">
+    <link rel="stylesheet" href="{back_to_root}css/style.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <script>
         MathJax = {{
             tex: {{
@@ -78,25 +75,27 @@ def convert_md_to_html(md_path, css_path='../../css/style.css', back_to_root='..
 <div class="container">
     
     <div class="header">
-        <div class="site-title"><a href="{relative_root}index.html">🌹 Zheng LUO</a></div>
+        <div class="site-title"><a href="{back_to_root}index.html">🌹 Zheng (Rose) Luo</a></div>
         <div class="nav">
-            <a href="{relative_root}index.html">About</a>
-            <a href="{relative_root}blog.html">Blog</a>
-            <a href="{relative_root}notes.html">Notes</a>
-            <a href="{relative_root}projects.html">Projects</a>
+            <a href="{back_to_root}index.html">About</a>
+            <a href="{back_to_root}blog.html">Blog</a>
+            <a href="{back_to_root}notes.html">Notes</a>
+            <a href="{back_to_root}projects.html">Projects</a>
         </div>
     </div>
 
-    <article>
-        <h1 style="font-weight: 400; font-size: 1.8rem; margin-bottom: 0.2rem;">{title}</h1>
-        {f'<p style="color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.9rem; margin-bottom: 1.5rem;">{date}</p>' if date else ''}
-        <div class="post-content">
-            {html_body}
-        </div>
-    </article>
+    <!-- 文章内容：只显示正文，不再重复标题 -->
+    <div class="post-content" style="margin-top: 1rem;">
+        {html_body}
+    </div>
+
+    <!-- 显示日期 -->
+    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
+        {date if date else ''}
+    </div>
 
     <div class="footer-note">
-        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
     </div>
 </div>
 </body>
