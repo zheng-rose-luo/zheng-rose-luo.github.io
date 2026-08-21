@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zheng LUO · 个人网站</title>
+  <!-- 仿 al-folio 风格：极简、衬线+无衬线混搭、暖白背景、柔和阴影 -->
+  <style>
+    /* 全局重置 & 字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.03);
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+    }
+
+    /* 头部 / 导航 */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid #eae7e2;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .site-title {
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #1e1e1e;
+    }
+
+    .site-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+      font-size: 1.05rem;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-weight: 400;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #4a4a4a;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .nav a:hover {
+      border-bottom-color: #7f7f7f;
+      color: #000;
+    }
+
+    .nav a.active {
+      border-bottom-color: #2c2c2c;
+      color: #000;
+      font-weight: 500;
+    }
+
+    /* 页面内容 */
+    .page {
+      display: block;
+    }
+
+    /* about 区块 */
+    .about-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .about-section {
+      background: #fcfbf9;
+      padding: 1.5rem 1.8rem;
+      border-radius: 10px;
+      border: 1px solid #f0ede8;
+    }
+
+    .about-section h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
+      border-bottom: 1px solid #e2ddd6;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+    }
+
+    .about-section p, .about-section li {
+      color: #3a3a3a;
+    }
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 0.6rem;
+      background: #eae7e2;
+      padding: 0.5rem 1.4rem;
+      border-radius: 30px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      color: #1e1e1e;
+      text-decoration: none;
+      border: 1px solid #d6d0c8;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .cv-button:hover {
+      background: #dad5cd;
+      border-color: #b8b0a6;
+    }
+
+    .publication-item, .post-item, .project-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .publication-item strong, .project-item strong {
+      font-weight: 600;
+      color: #1e1e1e;
+    }
+
+    .publication-item .pub-meta, .project-item .project-meta {
+      font-size: 0.9rem;
+      color: #5f5f5f;
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .project-item {
+      border-bottom: 1px dashed #e2ddd6;
+      padding-bottom: 0.9rem;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    /* blog 卡片简约 */
+    .blog-list .post-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #ece8e2;
+    }
+
+    .blog-list .post-item:last-child {
+      border-bottom: none;
+    }
+
+    .post-title {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #1e1e1e;
+    }
+
+    .post-date {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: #6f6f6f;
+      margin-left: 0.8rem;
+      font-weight: 300;
+    }
+
+    .post-excerpt {
+      color: #4f4f4f;
+      margin-top: 0.2rem;
+    }
+
+    /* 项目列表 (research experience) */
+    .project-list .project-item .project-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+    }
+
+    .project-list .project-item .project-desc {
+      margin-top: 0.2rem;
+      color: #3d3d3d;
+    }
+
+    .project-list .project-item .project-tags {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      color: #7a7a7a;
+      margin-top: 0.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #eae7e2;
+      margin: 1.2rem 0;
+    }
+
+    /* 隐藏控制 */
+    .hidden-page {
+      display: none;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .nav {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+      }
+    }
+
+    /* 小点缀 */
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #a09a92;
+      text-align: right;
+      border-top: 1px solid #f0ede8;
+      padding-top: 1.2rem;
+      font-family: 'Arial', sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 头部 -->
+  <div class="header">
+    <div class="site-title"><a href="#" onclick="showPage('about')">Zheng LUO</a></div>
+    <div class="nav">
+      <a href="#" class="active" id="nav-about" onclick="showPage('about')">About</a>
+      <a href="#" id="nav-blog" onclick="showPage('blog')">Blog</a>
+      <a href="#" id="nav-projects" onclick="showPage('projects')">Projects</a>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT PAGE ============ -->
+  <div id="page-about" class="page">
+    <div class="about-grid">
+
+      <!-- 第一部分: Zheng's portfolio (简介) -->
+      <div class="about-section">
+        <h2>Zheng's Portfolio</h2>
+        <p style="margin-bottom: 0.4rem;">
+          <strong>Zheng LUO</strong> · PhD candidate in Solid Mechanics, Xi'an Jiaotong University<br>
+          <span style="color: #4f4f4f;">Human-centric passion · Dielectric Breakdown · Soft Matter Fracture</span>
+        </p>
+        <p style="margin-top: 0.6rem; font-size: 0.95rem;">
+          My research bridges fracture mechanics and electrodynamics, exploring defect tolerance, 
+          polymer network topologies, and continuum dielectric breakdown. I am driven by a 
+          deep curiosity about the physical limits of materials and energy systems.
+        </p>
+        <!-- CV 下载按钮 -->
+        <a href="#" class="cv-button" onclick="downloadCV(); return false;">📄 Download CV (PDF)</a>
+        <span style="margin-left: 0.8rem; font-size: 0.85rem; color: #6f6f6f;">Zheng_Luo_CV_EN.pdf</span>
+      </div>
+
+      <!-- 第二部分: Latest posts (从blog摘录) -->
+      <div class="about-section">
+        <h2>Latest Posts</h2>
+        <div class="blog-list">
+          <div class="post-item">
+            <span class="post-title">Dielectric breakdown toughness</span>
+            <span class="post-date">Jul 2026</span>
+            <div class="post-excerpt">Proposing a new material parameter bridging defect size and insulation performance.</div>
+          </div>
+          <div class="post-item">
+            <span class="post-title">Solvent-toughening strategy</span>
+            <span class="post-date">Mar 2026</span>
+            <div class="post-excerpt">Selective evaporation of solvents to tune entanglements and achieve softening without sacrificing strength.</div>
+          </div>
+          <div class="post-item">
+            <span class="post-title">High-throughput phase diagrams</span>
+            <span class="post-date">Nov 2025</span>
+            <div class="post-excerpt">Combinatorial PEA networks spanning 5 orders of magnitude: brittle to extensible.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第三部分: Publications (精选) -->
+      <div class="about-section">
+        <h2>Publications</h2>
+        <div class="publication-item">
+          <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
+        </div>
+        <div class="publication-item">
+          <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>. 
+          <span class="pub-meta">https://doi.org/10.1007/978-3-030-70795-8_39</span>
+        </div>
+        <div class="publication-item">
+          <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y. (2021). Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
+        </div>
+        <div style="margin-top: 0.5rem; font-style: italic; color: #5f5f5f;">… and more in progress.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BLOG PAGE ============ -->
+  <div id="page-blog" class="page hidden-page">
+    <div style="margin-bottom: 1.8rem;">
+      <h2 style="font-weight: 400; font-size: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">Blog</h2>
+    </div>
+    <div class="blog-list">
+      <div class="post-item">
+        <div class="post-title">Electrical J-integral & phase-field simulation <span class="post-date">Jun 2026</span></div>
+        <div class="post-excerpt">Rigorous derivation and COMSOL verification of path-independence; predicting breakdown paths in dielectric materials.</div>
+      </div>
+      <div class="post-item">
+        <div class="post-title">Microscopic origins of quasi-ideal plasticity <span class="post-date">Apr 2026</span></div>
+        <div class="post-excerpt">Phase C* elastomers with rectangle-like stress-strain curves and strain-rate strengthening.</div>
+      </div>
+      <div class="post-item">
+        <div class="post-title">Multiscale defect-embedded specimens <span class="post-date">Feb 2026</span></div>
+        <div class="post-excerpt">6 classes of defects spanning 3 orders of magnitude, Weibull analysis validates defect tolerance hypothesis.</div>
+      </div>
+      <div class="post-item">
+        <div class="post-title">Electro-mechanical coupling in soft dielectrics <span class="post-date">Dec 2025</span></div>
+        <div class="post-excerpt">Exploring critical thresholds and chain entanglement strategies for enhanced fatigue resistance.</div>
+      </div>
+      <div class="post-item">
+        <div class="post-title">High-throughput synthesis of PEA networks <span class="post-date">Oct 2025</span></div>
+        <div class="post-excerpt">Mapping topological states from brittle networks to extensible gels.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROJECTS PAGE ============ -->
+  <div id="page-projects" class="page hidden-page">
+    <div style="margin-bottom: 1.8rem;">
+      <h2 style="font-weight: 400; font-size: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">Research Projects</h2>
+    </div>
+    <div class="project-list">
+
+      <div class="project-item">
+        <div class="project-title">Topological Manipulation and Fracture Mechanics in Soft Matter</div>
+        <div class="project-desc"><strong>Vision:</strong> Unveiling the mapping between microscopic polymer network topologies and macroscopic mechanical behaviors. High-throughput synthesis, phase diagram construction, transient chain entanglements.</div>
+        <div class="project-tags">PEA networks · impact energy absorption · solvent-toughening</div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Continuum Dielectric Breakdown Theory</div>
+        <div class="project-desc"><strong>Vision:</strong> Translating 'defect tolerance' from fracture mechanics to electrodynamics. Proposing 'Electrical Breakdown Toughness' as a key parameter. Electrical J-integral, phase-field simulations, multiscale experiments.</div>
+        <div class="project-tags">COMSOL · Weibull · defect-embedded specimens · electro-mechanical coupling</div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Multi-Astrocyte Modelling of ECS Potassium Diffusion</div>
+        <div class="project-desc">Aquaporin-4-dependent diffusion model, funded by National Undergraduate Innovation Program. Presented at ICVE2021, Shanghai.</div>
+        <div class="project-tags">neurodynamics · astrocyte · extracellular space</div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Energy Efficiency of Cortical Action Potential</div>
+        <div class="project-desc">Developed neuroEFF software for neural energy efficiency calculation. Presented at CHAOS2020, Florence.</div>
+        <div class="project-tags">Python · computational neuroscience · temperature dependence</div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Gentrification and Alleviation of Poverty</div>
+        <div class="project-desc">Field investigation and comprehensive analysis on housing demolition and relocation. Silk Road SOAR Youth Leadership Programme.</div>
+        <div class="project-tags">PolyU · PKU · XJTU · social science</div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">Spherical Mobile Robot Design</div>
+        <div class="project-desc">Designed remote control program from Arduino within 10 hours. Robotics & Intelligent System Lab.</div>
+        <div class="project-tags">Arduino · robotics · embedded</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    Zheng LUO · rose.zheng.luo@gmail.com
+  </div>
+</div>
+
+<script>
+  // 页面切换
+  function showPage(pageId) {
+    // 隐藏所有页面
+    document.querySelectorAll('.page').forEach(p => p.classList.add('hidden-page'));
+    // 显示选中
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.remove('hidden-page');
+
+    // 更新导航激活样式
+    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+    const navMap = {
+      'about': 'nav-about',
+      'blog': 'nav-blog',
+      'projects': 'nav-projects'
+    };
+    const activeNav = document.getElementById(navMap[pageId]);
+    if (activeNav) activeNav.classList.add('active');
+  }
+
+  // 下载CV (简历PDF)
+  function downloadCV() {
+    const link = document.createElement('a');
+    link.download = 'Zheng_Luo_CV_EN.pdf';
+    // 创建一个小型PDF示意 (实际是文本文件，但命名为pdf，用户会收到一个pdf文件)
+    // 为了更逼真，我们生成一个简单的文本内容，让用户知道这是模拟。
+    const blob = new Blob(['%PDF-1.4 模拟简历：Zheng LUO 的CV。实际PDF请从原始文件获取。'], { type: 'application/pdf' });
+    link.href = URL.createObjectURL(blob);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+  }
+
+  // 默认显示about
+  window.onload = function() {
+    showPage('about');
+  };
+</script>
+
+<!-- 额外说明：Docker 本地展示 -->
+<!-- 只需将本html保存为index.html，用任意静态服务器即可。 
+     若用docker: docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx 
+     或 python -m http.server 8000  -->
+</body>
+</html>
