@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dielectric Breakdown Toughness · Zheng LUO</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+<div class="container">
+    
+    <div class="header">
+        <div class="site-title"><a href="../../index.html">🌹 Zheng LUO</a></div>
+        <div class="nav">
+            <a href="../../index.html">About</a>
+            <a href="../../blog.html">Blog</a>
+            <a href="../../notes.html">Notes</a>
+            <a href="../../projects.html">Projects</a>
+        </div>
+    </div>
+
+    <article>
+        <h1 style="font-weight: 400; font-size: 1.8rem; margin-bottom: 0.2rem;">Dielectric Breakdown Toughness</h1>
+        <p style="color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.9rem; margin-bottom: 1.5rem;">2026-07-01</p>
+        <div class="post-content">
+            <h1 id="dielectric-breakdown-toughness">Dielectric Breakdown Toughness</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The electrical J-integral is defined as:</p>
+<p>$$J_e = \int_{\Gamma} (W_e \, dy - \mathbf{T} \cdot \frac{\partial \mathbf{D}}{\partial x} \, ds)$$</p>
+<p>For a dielectric material, the breakdown condition can be expressed as:</p>
+<p>$$K_{e} = Y \sqrt{\pi a}$$</p>
+<p>where $K_e$ is the electrical stress intensity factor, $Y$ is a geometric factor, and $a$ is the defect size.</p>
+<h2 id="defect-tolerance-hypothesis">Defect Tolerance Hypothesis</h2>
+<p>We propose that the breakdown strength of a dielectric material is governed by the largest defect:</p>
+<p>$$\sigma_b = \frac{K_{ec}}{Y \sqrt{\pi a_{\text{max}}}}$$</p>
+<p>where $K_{ec}$ is the <strong>electrical breakdown toughness</strong> - a new material constant.</p>
+<h2 id="experimental-validation">Experimental Validation</h2>
+<p>We fabricated specimens with controlled artificial defects:</p>
+<table>
+<thead>
+<tr>
+<th>Defect type</th>
+<th>Size range</th>
+<th>Material</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notch</td>
+<td>1-10 μm</td>
+<td>PDMS</td>
+</tr>
+<tr>
+<td>Hole</td>
+<td>100 nm - 1 μm</td>
+<td>Silicone</td>
+</tr>
+<tr>
+<td>Crack</td>
+<td>10-100 μm</td>
+<td>Polyurethane</td>
+</tr>
+</tbody>
+</table>
+<p>The Weibull distribution confirms:</p>
+<p>$$P_f = 1 - \exp\left[-\left(\frac{\sigma}{\sigma_0}\right)^m\right]$$</p>
+<p>where $m$ is the Weibull modulus.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This work establishes electrical breakdown toughness as a meaningful material parameter, bridging fracture mechanics and dielectric physics.</p>
+        </div>
+    </article>
+
+    <div class="footer-note">
+        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
+</div>
+</body>
+</html>

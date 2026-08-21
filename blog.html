@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog · Zheng LUO</title>
-  <!-- 仿 al-folio 风格：极简、衬线+无衬线混搭、暖白背景、柔和阴影 -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blog · Zheng LUO</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
 
-  <!-- 头部 / 导航 -->
-  <div class="header">
-    <div class="site-title"><a href="index.html">Zheng LUO</a></div>
-    <div class="nav">
-      <a href="index.html">About</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="notes.html">Notes</a>
-      <a href="projects.html">Projects</a>
+    <div class="header">
+        <div class="site-title"><a href="index.html">🌹 Zheng LUO</a></div>
+        <div class="nav">
+            <a href="index.html">About</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="notes.html">Notes</a>
+            <a href="projects.html">Projects</a>
+        </div>
     </div>
-  </div>
 
-  <!-- 页面主体 -->
-  <h2 class="page-title">博客文章列表</h2>
+    <div class="page">
+        <div style="margin-bottom: 1.8rem;">
+            <h2 style="font-weight: 400; font-size: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">📖 Blog</h2>
+            <p style="color: #6f6f6f; margin-top: 0.5rem;">Deep dives into research, methods, and ideas.</p>
+        </div>
 
-  <div class="blog-list">
-    <div class="post-item">
-      <div class="post-title">Electrical J-integral & phase-field simulation <span class="post-date">Jun 2026</span></div>
-      <div class="post-excerpt">Rigorous derivation and COMSOL verification of path-independence; predicting breakdown paths in dielectric materials.</div>
-    </div>
-    <div class="post-item">
-      <div class="post-title">Microscopic origins of quasi-ideal plasticity <span class="post-date">Apr 2026</span></div>
-      <div class="post-excerpt">Phase C* elastomers with rectangle-like stress-strain curves and strain-rate strengthening.</div>
-    </div>
-    <div class="post-item">
-      <div class="post-title">Multiscale defect-embedded specimens <span class="post-date">Feb 2026</span></div>
-      <div class="post-excerpt">6 classes of defects spanning 3 orders of magnitude, Weibull analysis validates defect tolerance hypothesis.</div>
-    </div>
-    <div class="post-item">
-      <div class="post-title">Electro-mechanical coupling in soft dielectrics <span class="post-date">Dec 2025</span></div>
-      <div class="post-excerpt">Exploring critical thresholds and chain entanglement strategies for enhanced fatigue resistance.</div>
-    </div>
-  </div>
+        <div class="blog-list">
+            
+            <div class="post-item">
+                <h3><a href="posts/blog/2026-07-01-dielectric-breakdown.html" style="color: #1e1e1e; text-decoration: none;">Dielectric Breakdown Toughness</a></h3>
+                <span class="post-date">July 2026</span>
+                <p class="post-excerpt">Proposing a new material parameter bridging defect size and insulation performance.</p>
+            </div>
+            
+            <div class="post-item">
+                <h3><a href="posts/blog/2026-06-15-electrical-j-integral.html" style="color: #1e1e1e; text-decoration: none;">Electrical J-Integral & Phase-Field Simulation</a></h3>
+                <span class="post-date">June 2026</span>
+                <p class="post-excerpt">Rigorous derivation and COMSOL verification of path-independence; predicting breakdown paths in dielectric materials.</p>
+            </div>
+            
+            <div class="post-item">
+                <h3><a href="posts/blog/2026-05-01-quasi-ideal-plasticity.html" style="color: #1e1e1e; text-decoration: none;">Microscopic Origins of Quasi-Ideal Plasticity</a></h3>
+                <span class="post-date">May 2026</span>
+                <p class="post-excerpt">Phase C* elastomers with rectangle-like stress-strain curves and strain-rate strengthening.</p>
+            </div>
 
-  <!-- footer -->
-  <div class="footer-note">
-    Zheng LUO · rose.zheng.luo@gmail.com
-  </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
 </div>
 </body>
 </html>

@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notes · Zheng LUO</title>
-  <!-- 仿 al-folio 风格：极简、衬线+无衬线混搭、暖白背景、柔和阴影 -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 Notes · Zheng LUO</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
 
-  <!-- 头部 / 导航 -->
-  <div class="header">
-    <div class="site-title"><a href="index.html">Zheng LUO</a></div>
-    <div class="nav">
-      <a href="index.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="notes.html" class="active">Notes</a>
-      <a href="projects.html">Projects</a>
+    <div class="header">
+        <div class="site-title"><a href="index.html">🌹 Zheng LUO</a></div>
+        <div class="nav">
+            <a href="index.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="notes.html" class="active">Notes</a>
+            <a href="projects.html">Projects</a>
+        </div>
     </div>
-  </div>
 
-  <!-- 页面主体 -->
-  <h2 class="page-title">短想法</h2>
+    <div class="page">
+        <div style="margin-bottom: 1.8rem;">
+            <h2 style="font-weight: 400; font-size: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">📝 Notes</h2>
+            <p style="color: #6f6f6f; margin-top: 0.5rem;">Short thoughts, daily discoveries, and research snippets.</p>
+        </div>
 
-  <div class="notes-list">
-    <div class="note-item">
-      <span class="note-date">2026-08-12</span>
-      <div class="note-content">Just submitted the revised dielectric breakdown manuscript. The reviewers' comments actually sharpened the whole story — grateful for that.</div>
-    </div>
-    <div class="note-item">
-      <span class="note-date">2026-07-30</span>
-      <div class="note-content">A good figure is worth a thousand words. Spent the whole day polishing the phase-field simulation renderings, and it was absolutely worth it.</div>
-    </div>
-    <div class="note-item">
-      <span class="note-date">2026-07-05</span>
-      <div class="note-content">Interesting discussion today: can "defect tolerance" from fracture mechanics be translated to electrical breakdown? I think the answer is yes.</div>
-    </div>
-    <div class="note-item">
-      <span class="note-date">2026-06-18</span>
-      <div class="note-content">Debugging the COMSOL implementation of the electrical J-integral... it finally became path-independent. Small wins matter.</div>
-    </div>
-    <div class="note-item">
-      <span class="note-date">2026-05-22</span>
-      <div class="note-content">Reading old lab notebooks: some half-baked ideas from three years ago are finally starting to make sense now.</div>
-    </div>
-    <div class="note-item">
-      <span class="note-date">2026-04-09</span>
-      <div class="note-content">Coffee + soft matter fracture = best ideas. The solvent-toughening experiments are showing beautifully stable stress-strain curves.</div>
-    </div>
-  </div>
+        <div class="notes-list">
+            
+            <div class="note-item" style="padding: 1rem 0; border-bottom: 1px solid #ece8e2;">
+                <span class="note-date" style="font-family: Arial, sans-serif; font-size: 0.8rem; color: #6f6f6f;">2026-08-21</span>
+                <p style="margin-top: 0.2rem;">
+                    <a href="posts/notes/2026-08-21-markdown-mathjax.html" style="color: #1e1e1e; text-decoration: none; font-weight: 500;">Markdown + MathJax 配置成功</a>
+                </p>
+                <p style="margin-top: 0.2rem; color: #4f4f4f;">用 $E = mc^2$ 写公式的感觉真好。</p>
+            </div>
+            
+            <div class="note-item" style="padding: 1rem 0; border-bottom: 1px solid #ece8e2;">
+                <span class="note-date" style="font-family: Arial, sans-serif; font-size: 0.8rem; color: #6f6f6f;">2026-08-20</span>
+                <p style="margin-top: 0.2rem;">
+                    <a href="posts/notes/2026-08-20-breakdown-toughness.html" style="color: #1e1e1e; text-decoration: none; font-weight: 500;">电击穿韧性的思考</a>
+                </p>
+                <p style="margin-top: 0.2rem; color: #4f4f4f;">$K_{ec}$ 可能成为新的材料常数。</p>
+            </div>
+            
+            <div class="note-item" style="padding: 1rem 0; border-bottom: 1px solid #ece8e2;">
+                <span class="note-date" style="font-family: Arial, sans-serif; font-size: 0.8rem; color: #6f6f6f;">2026-08-19</span>
+                <p style="margin-top: 0.2rem;">
+                    <a href="posts/notes/2026-08-19-solvent-history.html" style="color: #1e1e1e; text-decoration: none; font-weight: 500;">溶剂历史策略</a>
+                </p>
+                <p style="margin-top: 0.2rem; color: #4f4f4f;">独立调控刚度和韧性的新方法。</p>
+            </div>
 
-  <!-- footer -->
-  <div class="footer-note">
-    Zheng LUO · rose.zheng.luo@gmail.com
-  </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
 </div>
 </body>
 </html>

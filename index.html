@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zheng LUO · 个人网站</title>
-  <!-- 仿 al-folio 风格：极简、衬线+无衬线混搭、暖白背景、柔和阴影 -->
+  <title> Zheng LUO · 个人网站</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,11 +23,13 @@
 
   <!-- 头像区域 -->
   <div class="avatar-row">
-    <div class="avatar">ZL</div>
+    <div class="avatar">
+      <img src="assets/images/MyPhoto.jpg" alt="Zheng LUO" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    </div>
     <div class="avatar-info">
       <h1>Zheng LUO</h1>
-      <p>PhD candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-      <p class="avatar-tagline">Human-centric passion · Dielectric Breakdown · Soft Matter Fracture</p>
+      <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
+      <p class="avatar-tagline">"From toughness emerging among atoms to intelligence emerging among neurons"</p>
     </div>
   </div>
 
@@ -41,37 +43,41 @@
         polymer network topologies, and continuum dielectric breakdown. I am driven by a
         deep curiosity about the physical limits of materials and energy systems.
       </p>
-      <!-- CV 下载按钮 -->
-      <a href="#" class="cv-button" onclick="downloadCV(); return false;">📄 Download CV (PDF)</a>
-      <span style="margin-left: 0.8rem; font-size: 0.85rem; color: #6f6f6f;">Zheng_Luo_CV_EN.pdf</span>
+      <p style="font-size: 0.95rem; margin-top: 0.5rem;">
+        I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University.
+        Previously, I was a visiting student in Physics at the <strong>University of Oxford</strong>
+        and completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
+      </p>
+      <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
     </div>
 
-    <!-- Latest Posts (从 blog 摘录) -->
+    <!-- Latest Posts: Blog + Notes 混合，按时间排序，共3条 -->
     <div class="about-section">
       <h2>Latest Posts</h2>
       <div class="blog-list">
         <div class="post-item">
-          <span class="post-title"><a href="blog.html" style="color: inherit;">Dielectric breakdown toughness</a></span>
+          <span class="post-title"><a href="posts/blog/2026-07-01-dielectric-breakdown.html" style="color: inherit;">Dielectric Breakdown Toughness</a></span>
           <span class="post-date">Jul 2026</span>
           <div class="post-excerpt">Proposing a new material parameter bridging defect size and insulation performance.</div>
         </div>
         <div class="post-item">
-          <span class="post-title"><a href="blog.html" style="color: inherit;">Solvent-toughening strategy</a></span>
-          <span class="post-date">Mar 2026</span>
-          <div class="post-excerpt">Selective evaporation of solvents to tune entanglements and achieve softening without sacrificing strength.</div>
+          <span class="post-title"><a href="posts/blog/2026-06-15-electrical-j-integral.html" style="color: inherit;">Electrical J-Integral & Phase-Field Simulation</a></span>
+          <span class="post-date">Jun 2026</span>
+          <div class="post-excerpt">Rigorous derivation and COMSOL verification of path-independence.</div>
         </div>
         <div class="post-item">
-          <span class="post-title"><a href="blog.html" style="color: inherit;">High-throughput phase diagrams</a></span>
-          <span class="post-date">Nov 2025</span>
-          <div class="post-excerpt">Combinatorial PEA networks spanning 5 orders of magnitude: brittle to extensible.</div>
+          <span class="post-title"><a href="posts/notes/2026-08-21-markdown-mathjax.html" style="color: inherit;">Markdown + MathJax 配置成功</a></span>
+          <span class="post-date">Aug 2026</span>
+          <div class="post-excerpt">用 $E = mc^2$ 写公式的感觉真好。</div>
         </div>
       </div>
       <p style="margin-top: 0.8rem;"><a href="blog.html" style="color: #5f5f5f;">View all posts →</a></p>
     </div>
 
-    <!-- Publications (精选) -->
+    <!-- Publications: 全部列出 -->
     <div class="about-section">
       <h2>Publications</h2>
+
       <div class="publication-item">
         <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
       </div>
@@ -80,32 +86,42 @@
         <span class="pub-meta">https://doi.org/10.1007/978-3-030-70795-8_39</span>
       </div>
       <div class="publication-item">
-        <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y. (2021). Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
+        <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
       </div>
-      <div style="margin-top: 0.5rem; font-style: italic; color: #5f5f5f;">… and more in progress.</div>
+     
+
+      <div style="margin-top: 0.8rem; font-style: italic; color: #5f5f5f; font-size: 0.9rem;">
+        <strong>In preparation:</strong>
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, Zhang, G., Lu, T., &amp; Suo, Z. Phase diagram of a minimal polymer network: From brittle solids to extremely extensible gels.
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, Lu, T., Zhang, G., &amp; Suo, Z. Solvent history as a design principle for decoupling stiffness and toughness in crosslinked elastomers.
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, &amp; Suo, Z. On the deformable-to-rigid crossover in dielectric breakdown: When can mechanical deformation be ignored?
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, Kai, L., et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
+      </div>
+      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+        <strong>Luo, Z.</strong>, Zhang, Y., Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
+      </div>
+      <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
+        † equal contribution
+      </div>
     </div>
+
   </div>
 
   <!-- footer -->
   <div class="footer-note">
-    Zheng LUO · rose.zheng.luo@gmail.com
+    Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
   </div>
 </div>
-
-<script>
-  // 下载CV (简历PDF)
-  function downloadCV() {
-    const link = document.createElement('a');
-    link.download = 'Zheng_Luo_CV_EN.pdf';
-    // 创建一个小型PDF示意 (实际是文本文件，但命名为pdf，用户会收到一个pdf文件)
-    // 为了更逼真，我们生成一个简单的文本内容，让用户知道这是模拟。
-    const blob = new Blob(['%PDF-1.4 模拟简历：Zheng LUO 的CV。实际PDF请从原始文件获取。'], { type: 'application/pdf' });
-    link.href = URL.createObjectURL(blob);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(link.href);
-  }
-</script>
 </body>
 </html>

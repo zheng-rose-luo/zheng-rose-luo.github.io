@@ -117,7 +117,9 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  image-rendering: auto;
 }
+
 
 .avatar-info h1 {
   font-size: 2rem;
@@ -321,3 +323,161 @@ hr {
   padding-top: 1.2rem;
   font-family: 'Arial', sans-serif;
 }
+
+/* 文章正文 (posts) */
+.post-content {
+  color: #2c2c2c;
+  line-height: 1.7;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 1.4rem 0 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.post-content h2 {
+  font-size: 1.4rem;
+  border-bottom: 1px solid #eae7e2;
+  padding-bottom: 0.3rem;
+}
+
+.post-content h3 {
+  font-size: 1.15rem;
+}
+
+.post-content p {
+  margin: 0.7rem 0;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 0.7rem 0 0.7rem 1.4rem;
+}
+
+.post-content a {
+  color: #2c2c2c;
+  border-bottom: 1px solid #b8b0a6;
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  border-bottom-color: #2c2c2c;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 0.8rem 0;
+}
+
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.post-content th,
+.post-content td {
+  border: 1px solid #eae7e2;
+  padding: 0.4rem 0.8rem;
+  text-align: left;
+}
+
+.post-content th {
+  background: #fcfbf9;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+}
+
+.post-content blockquote {
+  border-left: 3px solid #e2ddd6;
+  margin: 1rem 0;
+  padding: 0.2rem 1rem;
+  color: #5f5f5f;
+}
+
+.post-content code {
+  background: #f4f2ef;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-content pre,
+.post-content .codehilite {
+  background: #f4f2ef;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.8rem 0;
+}
+
+.post-content pre code,
+.post-content .codehilite code {
+  background: none;
+  padding: 0;
+}
+
+/* 列表页标题链接 */
+.post-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-title a:hover {
+  color: #2c2c2c;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.project-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-title a:hover {
+  color: #2c2c2c;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+.project-title a::after {
+  content: ' ↗';
+  font-size: 0.75em;
+  color: #7a7a7a;
+}
+
+/* 出版物状态徽章 */
+.pub-badge {
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  color: #6f6f6f;
+  background: #f0ede8;
+  border-radius: 10px;
+  padding: 0.05rem 0.6rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* 短想法标题链接 */
+.note-title {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #1e1e1e;
+}
+
+.note-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.note-title a:hover {
+  color: #2c2c2c;
+  border-bottom: 1px solid #7f7f7f;
+}
+
+

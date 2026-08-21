@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvent History as a Design Principle for Crosslinked Elastomers · Zheng LUO</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+<div class="container">
+    
+    <div class="header">
+        <div class="site-title"><a href="../../index.html">🌹 Zheng LUO</a></div>
+        <div class="nav">
+            <a href="../../index.html">About</a>
+            <a href="../../blog.html">Blog</a>
+            <a href="../../notes.html">Notes</a>
+            <a href="../../projects.html">Projects</a>
+        </div>
+    </div>
+
+    <article>
+        <h1 style="font-weight: 400; font-size: 1.8rem; margin-bottom: 0.2rem;">Solvent History as a Design Principle for Crosslinked Elastomers</h1>
+        <p style="color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.9rem; margin-bottom: 1.5rem;">2026-07-25</p>
+        <div class="post-content">
+            <h1 id="solvent-history-as-a-design-principle-for-crosslinked-elastomers">Solvent History as a Design Principle for Crosslinked Elastomers</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Conventionally, stiffness and toughness of a polymer network are coupled: making the network
+stiffer often makes it more brittle. Can the <em>history</em> of a solvent, rather than its final
+composition, decouple these two properties?</p>
+<h2 id="the-solvent-history-strategy">The Solvent-History Strategy</h2>
+<p>A model network is first swollen to a prescribed degree by a solvent, crosslinked, and then
+the solvent is selectively evaporated. The final properties depend on the <em>path</em> taken:</p>
+<p>$$
+\mathcal{P} = \mathcal{F}(c_{\text{max}}, \dot{c}, T)
+$$</p>
+<p>where $c_{\text{max}}$ is the peak solvent concentration, $\dot{c}$ the evaporation rate,
+and $T$ the temperature.</p>
+<h2 id="decoupling-stiffness-and-toughness">Decoupling Stiffness and Toughness</h2>
+<p>The shear modulus $G$ scales with the crosslink density $\nu_x$ and the entanglement density
+$\nu_e$:</p>
+<p>$$
+G \approx k_B T \left( \nu_x + \alpha \, \nu_e \right)
+$$</p>
+<p>Because solvent evaporation redistributes entanglements without changing the crosslink
+density, we can soften the material (reduce $\nu_x$ contribution) while preserving its
+toughness (maintained through $\nu_e$). This independent control is captured by the map:</p>
+<p>$$
+(\nu_x, \nu_e) \xrightarrow{\text{solvent history}} (G, \Gamma)
+$$</p>
+<p>where $\Gamma$ is the fracture energy.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Solvent history offers a simple, scalable route to independently tune stiffness and
+toughness in crosslinked elastomers — a principle that may extend to other soft materials.</p>
+        </div>
+    </article>
+
+    <div class="footer-note">
+        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
+</div>
+</body>
+</html>

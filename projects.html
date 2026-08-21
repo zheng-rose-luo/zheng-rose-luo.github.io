@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects · Zheng LUO</title>
-  <!-- 仿 al-folio 风格：极简、衬线+无衬线混搭、暖白背景、柔和阴影 -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects · Zheng LUO</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
 
-  <!-- 头部 / 导航 -->
-  <div class="header">
-    <div class="site-title"><a href="index.html">Zheng LUO</a></div>
-    <div class="nav">
-      <a href="index.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="notes.html">Notes</a>
-      <a href="projects.html" class="active">Projects</a>
-    </div>
-  </div>
-
-  <!-- 页面主体 -->
-  <h2 class="page-title">研究项目</h2>
-
-  <div class="project-list">
-
-    <div class="project-item">
-      <div class="project-title">Topological Manipulation and Fracture Mechanics in Soft Matter</div>
-      <div class="project-desc"><strong>Vision:</strong> Unveiling the mapping between microscopic polymer network topologies and macroscopic mechanical behaviors. High-throughput synthesis, phase diagram construction, transient chain entanglements.</div>
-      <div class="project-tags">PEA networks · impact energy absorption · solvent-toughening</div>
+    <div class="header">
+        <div class="site-title"><a href="index.html">🌹 Zheng LUO</a></div>
+        <div class="nav">
+            <a href="index.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="notes.html">Notes</a>
+            <a href="projects.html" class="active">Projects</a>
+        </div>
     </div>
 
-    <div class="project-item">
-      <div class="project-title">Continuum Dielectric Breakdown Theory</div>
-      <div class="project-desc"><strong>Vision:</strong> Translating 'defect tolerance' from fracture mechanics to electrodynamics. Proposing 'Electrical Breakdown Toughness' as a key parameter. Electrical J-integral, phase-field simulations, multiscale experiments.</div>
-      <div class="project-tags">COMSOL · Weibull · defect-embedded specimens · electro-mechanical coupling</div>
+    <div class="page">
+        <div style="margin-bottom: 1.8rem;">
+            <h2 style="font-weight: 400; font-size: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">🚀 Research Projects</h2>
+            <p style="color: #6f6f6f; margin-top: 0.5rem;">Current and past research, from soft matter to neurodynamics.</p>
+        </div>
+
+        <div class="project-list">
+            
+            <div class="project-item" style="padding: 1.2rem 0; border-bottom: 1px dashed #e2ddd6;">
+                <div class="project-title" style="font-weight: 600; font-size: 1.05rem;">
+                    <a href="posts/projects/polymer-network-phase-diagram.html" style="color: #1e1e1e; text-decoration: none;">Tuning Bulk Properties via Microstructural Control in a Model Polymer Network</a>
+                </div>
+                <div class="project-desc" style="margin-top: 0.2rem; color: #3d3d3d;">
+                    Lead research on how collective behavior emerges from simple interacting units. Synthesized ~270 samples spanning 5 orders of magnitude, constructing a complete phase diagram revealing 4 distinct deformation regimes. Discovered a near-critical extensible phase with quasi-ideal plasticity and strain-rate strengthening.
+                </div>
+                <div class="project-tags" style="font-family: Arial, sans-serif; font-size: 0.75rem; color: #7a7a7a; margin-top: 0.2rem;">
+                    PEA networks · phase diagram · solvent-toughening · impact energy absorption
+                </div>
+            </div>
+            
+            <div class="project-item" style="padding: 1.2rem 0; border-bottom: 1px dashed #e2ddd6;">
+                <div class="project-title" style="font-weight: 600; font-size: 1.05rem;">
+                    <a href="posts/projects/dielectric-breakdown-theory.html" style="color: #1e1e1e; text-decoration: none;">Continuum Theory of Dielectric Breakdown</a>
+                </div>
+                <div class="project-desc" style="margin-top: 0.2rem; color: #3d3d3d;">
+                    Recast dielectric breakdown as a defect tolerance problem. Derived the electrical analog of the J-integral and simulated breakdown path evolution with phase-field PDE models. Engineered 6 classes of defect-embedded specimens across 2D and 3D geometries. Established electrical breakdown toughness as a new material constant.
+                </div>
+                <div class="project-tags" style="font-family: Arial, sans-serif; font-size: 0.75rem; color: #7a7a7a; margin-top: 0.2rem;">
+                    COMSOL · Weibull · defect tolerance · electrical J-integral
+                </div>
+            </div>
+            
+            <div class="project-item" style="padding: 1.2rem 0; border-bottom: 1px dashed #e2ddd6;">
+                <div class="project-title" style="font-weight: 600; font-size: 1.05rem;">
+                    <a href="posts/projects/cultural-tendencies-llm.html" style="color: #1e1e1e; text-decoration: none;">Cultural Tendencies in Large Language Models</a>
+                </div>
+                <div class="project-desc" style="margin-top: 0.2rem; color: #3d3d3d;">
+                    Tested whether LLMs shift their expressed cultural orientation across different prompt languages. Curated a bilingual dataset of hundreds of matched ChatGPT API responses. Published in <em>Nature Human Behaviour</em> (2025).
+                </div>
+                <div class="project-tags" style="font-family: Arial, sans-serif; font-size: 0.75rem; color: #7a7a7a; margin-top: 0.2rem;">
+                    LLM API · ChatGPT · cultural psychology · Nature Human Behaviour
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <div class="project-item">
-      <div class="project-title">Multi-Astrocyte Modelling of ECS Potassium Diffusion</div>
-      <div class="project-desc">Aquaporin-4-dependent diffusion model, funded by National Undergraduate Innovation Program. Presented at ICVE2021, Shanghai.</div>
-      <div class="project-tags">neurodynamics · astrocyte · extracellular space</div>
+    <div class="footer-note">
+        Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
     </div>
-
-    <div class="project-item">
-      <div class="project-title">Energy Efficiency of Cortical Action Potential</div>
-      <div class="project-desc">Developed neuroEFF software for neural energy efficiency calculation. Presented at CHAOS2020, Florence.</div>
-      <div class="project-tags">Python · computational neuroscience · temperature dependence</div>
-    </div>
-
-    <div class="project-item">
-      <div class="project-title">Gentrification and Alleviation of Poverty</div>
-      <div class="project-desc">Field investigation and comprehensive analysis on housing demolition and relocation. Silk Road SOAR Youth Leadership Programme.</div>
-      <div class="project-tags">PolyU · PKU · XJTU · social science</div>
-    </div>
-
-    <div class="project-item">
-      <div class="project-title">Spherical Mobile Robot Design</div>
-      <div class="project-desc">Designed remote control program from Arduino within 10 hours. Robotics & Intelligent System Lab.</div>
-      <div class="project-tags">Arduino · robotics · embedded</div>
-    </div>
-
-  </div>
-
-  <!-- footer -->
-  <div class="footer-note">
-    Zheng LUO · rose.zheng.luo@gmail.com
-  </div>
 </div>
 </body>
 </html>
