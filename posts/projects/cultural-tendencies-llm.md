@@ -1,7 +1,8 @@
 ---
 title: Cultural Tendencies in Large Language Models
 date: 2026-08-21
-excerpt: Published in Nature Human Behaviour (2025).
+excerpt: Tested whether LLMs shift their expressed cultural orientation across different prompt languages. Curated a bilingual dataset of hundreds of matched ChatGPT API responses. Published in Nature Human Behaviour (2025).
+tags: LLM API · ChatGPT · cultural psychology · Nature Human Behaviour
 ---
 
 # Cultural Tendencies in Large Language Models

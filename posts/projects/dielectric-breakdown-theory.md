@@ -1,7 +1,8 @@
 ---
 title: Continuum Theory of Dielectric Breakdown
 date: 2026-08-21
-excerpt: Electrical J-integral and phase-field simulations.
+excerpt: Recast dielectric breakdown as a defect tolerance problem. Derived the electrical analog of the J-integral and simulated breakdown path evolution with phase-field PDE models. Engineered 6 classes of defect-embedded specimens across 2D and 3D geometries. Established electrical breakdown toughness as a new material constant.
+tags: COMSOL · Weibull · defect tolerance · electrical J-integral
 ---
 
 # Continuum Theory of Dielectric Breakdown
