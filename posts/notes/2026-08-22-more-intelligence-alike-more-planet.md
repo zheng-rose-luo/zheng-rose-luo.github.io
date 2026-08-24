@@ -21,10 +21,6 @@ I'd add: this resembles a certain process in adulthood, when one realizes they a
 
 ---
 
-哎，我说这很像人成年后发现自己不是“最xxx”从而在社会上找到自己位置的某个过程……似乎是一些心理学知识……以后有空再找找。
-
----
-
 *2026-08-24, from DeepSeek:*
 
 This, in fact, has a clear counterpart in developmental psychology. It is what Jean Piaget called "decentration" — a core concept in cognitive developmental psychology. Decentration describes the process of moving from childhood "egocentrism" (the inability to distinguish one's own perspective from that of others) to the mature ability to coordinate multiple perspectives and understand oneself as part of a larger system. Piaget himself famously likened this cognitive restructuring to a "Copernican revolution" in the child's mental world — a shift that parallels, quite precisely, the realization that neither humanity nor Earth stands at the center of everything.
@@ -44,6 +40,10 @@ This, in fact, has a clear counterpart in developmental psychology. It is what J
 虽然“人是万物的尺度”思想家说了千年。或者，“人是会思想的蒲草”/“我思故我在”——都暗示着人好像只因为有思维而独异于众生。
 
 但，这两者——认识到人/地球并没有更特殊，而是并列于他者；以及，正因为自己属于人/地球，而更珍爱人/地球——我想是有益的。
+
+---
+
+哎，我说这很像人成年后发现自己不是“最xxx”从而在社会上找到自己位置的某个过程……似乎是一些心理学知识……以后有空再找找。
 
 ---
 

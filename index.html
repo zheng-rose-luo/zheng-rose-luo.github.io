@@ -1,140 +1,149 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Zheng LUO · Personal Website</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
-  <link rel="stylesheet" href="css/style.css">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zheng (Rose) Luo · Personal Website</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 </head>
 <body>
 <div class="container">
 
-  <!-- 头部 / 导航 -->
-  <div class="header">
-    <div class="site-title"><a href="index.html"> Zheng (Rose) Luo</a></div>
-    <div class="nav">
-      <a href="index.html" class="active">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="notes.html">Notes</a>
-      <a href="projects.html">Projects</a>
-    </div>
-  </div>
-
-  <!-- 头像区域 -->
-  <div class="avatar-row">
-    <div class="avatar">
-      <img src="assets/images/MyPhoto.jpg" alt="Zheng LUO" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-    </div>
-    <!-- <div class="avatar-info">
-      <h1>Zheng LUO</h1>
-      <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-      <p class="avatar-tagline">"From toughness emerging among atoms to intelligence emerging among neurons"</p>
-    </div> -->
-  <div class="avatar-info">
-      <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
-          <span>Zheng (Rose) LUO</span>
-          <span style="font-size: 0.85rem; font-weight: normal; color: #8a8a8a; white-space: nowrap;">
-              roughly like "Jung" in Jungle · feel free to call me Rose
-          </span>
-      </h1>
-      <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-      <p class="avatar-tagline">"From toughness emerging among atoms to intelligence emerging among neurons"</p>
-  </div>
-  </div>
-
-  <div class="about-grid">
-
-    <!-- 个人简介 -->
-    <div class="about-section">
-      <h2>About</h2>
-      <p style="font-size: 0.95rem;">
-        My research bridges fracture mechanics and electrodynamics, exploring defect tolerance,
-        polymer network topologies, and continuum dielectric breakdown. I am driven by a
-        deep curiosity about the physical limits of materials and energy systems.
-      </p>
-      <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-        I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University.
-        Previously, I was a visiting student in Physics at the <strong>University of Oxford</strong>
-        and completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
-      </p>
-      <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
-    </div>
-
-    <!-- Latest Posts: Blog + Notes 混合，按时间排序，共3条 -->
-    <div class="about-section">
-      <h2>Latest Posts</h2>
-      <div class="blog-list">
-        <div class="post-item">
-          <span class="post-title"><a href="posts/blog/2026-07-01-dielectric-breakdown.html" style="color: inherit;">Dielectric Breakdown Toughness</a></span>
-          <span class="post-date">Jul 2026</span>
-          <div class="post-excerpt">Proposing a new material parameter bridging defect size and insulation performance.</div>
+    <div class="header">
+        <div class="site-title"><a href="index.html">Zheng (Rose) Luo</a></div>
+        <div class="nav">
+            <a href="index.html" class="active">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="notes.html">Notes</a>
+            <a href="projects.html">Projects</a>
         </div>
-        <div class="post-item">
-          <span class="post-title"><a href="posts/blog/2026-06-15-electrical-j-integral.html" style="color: inherit;">Electrical J-Integral & Phase-Field Simulation</a></span>
-          <span class="post-date">Jun 2026</span>
-          <div class="post-excerpt">Rigorous derivation and COMSOL verification of path-independence.</div>
-        </div>
-        <div class="post-item">
-          <span class="post-title"><a href="posts/notes/2026-08-21-markdown-mathjax.html" style="color: inherit;">Markdown + MathJax 配置成功</a></span>
-          <span class="post-date">Aug 2026</span>
-          <div class="post-excerpt">用 $E = mc^2$ 写公式的感觉真好。</div>
-        </div>
-      </div>
-      <p style="margin-top: 0.8rem;"><a href="blog.html" style="color: #5f5f5f;">View all posts →</a></p>
     </div>
 
-    <!-- Publications: 全部列出 -->
-    <div class="about-section">
-      <h2>Publications</h2>
-
-      <div class="publication-item">
-        <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
-      </div>
-      <div class="publication-item">
-        <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>.
-        <span class="pub-meta">https://doi.org/10.1007/978-3-030-70795-8_39</span>
-      </div>
-      <div class="publication-item">
-        <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
-      </div>
-     
-
-      <div style="margin-top: 0.8rem; font-style: italic; color: #5f5f5f; font-size: 0.9rem;">
-        <strong>In preparation:</strong>
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, Zhang, G., Lu, T., &amp; Suo, Z. Phase diagram of a minimal polymer network: From brittle solids to extremely extensible gels.
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, Lu, T., Zhang, G., &amp; Suo, Z. Solvent history as a design principle for decoupling stiffness and toughness in crosslinked elastomers.
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, &amp; Suo, Z. On the deformable-to-rigid crossover in dielectric breakdown: When can mechanical deformation be ignored?
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, Kai, L., et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
-      </div>
-      <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-        <strong>Luo, Z.</strong>, Zhang, Y., Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
-      </div>
-      <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
-        † equal contribution
-      </div>
+    <div class="avatar-row">
+        <div class="avatar">
+            <img src="assets/images/MyPhoto.jpg" alt="Zheng (Rose) Luo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <div class="avatar-info">
+            <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
+                <span>Zheng Luo</span>
+                <span style="font-size: 0.82rem; font-weight: 300; color: #8a8a8a; white-space: nowrap; font-family: 'JetBrains Mono', 'Consolas', monospace;">
+                    roughly like "Jung" in Jungle · feel free to call me Rose
+                </span>
+            </h1>
+            <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
+            <p> applying to NeuroAI PhD programs for Fall 2027</p>
+            <p style="color: #4a4a4a; margin-top: 0.1rem; font-size: 0.95rem;">
+                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; color: #8a8a8a;">
+                    From toughness emerging among atoms to intelligence emerging among neurons
+                </span>
+            </p>
+        </div>
     </div>
 
-  </div>
+    <div class="about-grid">
 
-  <!-- footer -->
-  <div class="footer-note">
-    Zheng LUO · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-  </div>
+        <div class="about-section">
+            <h2>About</h2>
+            <p style="font-size: 0.95rem;">
+                My doctoral research centers on material failure under local field concentration. I study how polymer network topology manipulates 
+                fracture and plasticity in soft materials, and extend ideas of fracture mechanics into 
+                continuum electrodynamics — formulating electrical breakdown toughness
+                as a new material parameter to inform the design of high-voltage energy storage systems.
+            </p>
+            <p style="font-size: 0.95rem; margin-top: 0.5rem;">
+                I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
+                I was a visiting student in Physics at the <strong>University of Oxford</strong> and 
+                completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
+            </p>
+            <p style="font-size: 0.95rem; margin-top: 0.5rem;">
+                <strong>I am currently applying to PhD programs in NeuroAI for Fall 2027.</strong> 
+                I believe we are at a pivotal moment for understanding intelligence: LLMs offer 
+                human-like reasoning with full observability — every parameter and computation is 
+                traceable. This opens a unique window into the nature of intelligence, and I want 
+                to be part of exploring it.
+            </p>
+            <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
+        </div>
+
+        <div class="about-section">
+            <h2>Latest Posts</h2>
+            <div style="max-height: 320px; overflow-y: auto; padding-right: 8px;">
+                <div class="blog-list">
+                    
+            <div class="post-item">
+                <span class="post-title"><a href="posts/notes/2026-08-23-art-science-need-tech.html" style="color: inherit;">Art and Science Both Rest on Technology</a></span>
+                <span class="post-date">2026-08-23 16:30:00</span>
+                <div class="post-excerpt">Both art and science require technology as their foundation — like the stones of an endless staircase... no, like the central pillar of an infinite spiral staircase, guiding the way upward.</div>
+            </div>
+            <div class="post-item">
+                <span class="post-title"><a href="posts/notes/2026-08-23-abstraction-easier-than-execution.html" style="color: inherit;">Abstraction Is Always Easier Than Execution</a></span>
+                <span class="post-date">2026-08-23 15:30:00</span>
+                <div class="post-excerpt">Saying it abstractly is always far easier than actually making it happen.</div>
+            </div>
+            <div class="post-item">
+                <span class="post-title"><a href="posts/notes/2026-08-22-more-intelligence-alike-more-planet.html" style="color: inherit;">More Intelligences Beyond Humans, More Planets Beyond Earth</a></span>
+                <span class="post-date">2026-08-22</span>
+                <div class="post-excerpt">Discovering machine intelligence beyond human intelligence — I still think it ranks alongside the shift from geocentrism to heliocentrism.</div>
+            </div>
+            <div class="post-item">
+                <span class="post-title"><a href="posts/notes/2026-08-22-synethesia-sound-and-vision.html" style="color: inherit;">Synesthesia of Sound and Sight — "See Through"</a></span>
+                <span class="post-date">2026-08-22</span>
+                <div class="post-excerpt">Crisp, crystalline vocal runs — like countless reflections of "you," each similar yet distinct, cast by a faceted glass.</div>
+            </div>
+                </div>
+            </div>
+            <p style="margin-top: 0.8rem;"><a href="blog.html" style="color: #5f5f5f;">View all posts →</a></p>
+        </div>
+
+        <div class="about-section">
+            <h2>Publications</h2>
+
+            <div class="publication-item">
+                <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
+            </div>
+            <div class="publication-item">
+                <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>.
+                <span class="pub-meta">https://doi.org/10.1007/978-3-030-70795-8_39</span>
+            </div>
+            <div class="publication-item">
+                <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
+            </div>
+
+            <div style="margin-top: 0.8rem; font-style: italic; color: #5f5f5f; font-size: 0.9rem;">
+                <strong>In preparation:</strong>
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, Zhang, G., Lu, T., &amp; Suo, Z. Phase diagram of a minimal polymer network: From brittle solids to extremely extensible gels.
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, Lu, T., Zhang, G., &amp; Suo, Z. Solvent history as a design principle for decoupling stiffness and toughness in crosslinked elastomers.
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, &amp; Suo, Z. On the deformable-to-rigid crossover in dielectric breakdown: When can mechanical deformation be ignored?
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, Kai, L., et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
+            </div>
+            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
+                <strong>Luo, Z.</strong>, Zhang, Y., Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
+            </div>
+            <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
+                † equal contribution
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
 </div>
 </body>
 </html>

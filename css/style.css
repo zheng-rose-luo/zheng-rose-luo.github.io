@@ -1,4 +1,9 @@
 /* 全局重置 & 字体 */
+/* 全局重置 & 字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -133,10 +138,17 @@ body {
   color: #3a3a3a;
 }
 
-.avatar-tagline {
+/* .avatar-tagline {
   font-size: 0.95rem;
   color: #5f5f5f !important;
   margin-top: 0.2rem;
+} */
+.avatar-tagline {
+    font-size: 0.95rem;
+    color: #5f5f5f !important;
+    margin-top: 0.2rem;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-weight: 300;
 }
 
 /* about 区块 */
