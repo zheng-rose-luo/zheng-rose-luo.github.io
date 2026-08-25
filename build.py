@@ -219,24 +219,24 @@ def generate_index_page(latest_posts):
         </div>
     </div>
 
-    <div class="avatar-row">
+ <div class="avatar-row">
         <div class="avatar">
             <img src="assets/images/MyPhoto.jpg" alt="Zheng (Rose) Luo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
         </div>
         <div class="avatar-info">
             <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
-                <span>Zheng (Rose) Luo</span>
+                <span>Zheng Luo</span>
                 <span style="font-size: 0.82rem; font-weight: 300; color: #8a8a8a; white-space: nowrap; font-family: 'JetBrains Mono', 'Consolas', monospace;">
                     roughly like "Jung" in Jungle · feel free to call me Rose
                 </span>
             </h1>
             <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
+            <p> applying to NeuroAI PhD programs for Fall 2027</p>
             <p style="color: #4a4a4a; margin-top: 0.1rem; font-size: 0.95rem;">
-                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; font-style: italic; color: #5f5f5f;">
-                    applying to NeuroAI PhD programs for Fall 2027
+                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; color: #8a8a8a;">
+                    From toughness emerging among atoms to intelligence emerging among neurons
                 </span>
             </p>
-            <p class="avatar-tagline">"From toughness emerging among atoms to intelligence emerging among neurons"</p>
         </div>
     </div>
 
@@ -247,7 +247,7 @@ def generate_index_page(latest_posts):
             <p style="font-size: 0.95rem;">
                 My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
                 fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
-                <strong>electrical breakdown toughness</strong> as a new material parameter to inform the design of high-voltage energy storage systems.
+                electrical breakdown toughness as a new material parameter to inform the design of high-voltage energy storage systems.
             </p>
             <p style="font-size: 0.95rem; margin-top: 0.5rem;">
                 I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
