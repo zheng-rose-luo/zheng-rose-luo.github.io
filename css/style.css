@@ -493,3 +493,16 @@ hr {
 }
 
 
+/* 强制所有名字不斜体 */
+.site-title a,
+.footer-note,
+.avatar-info h1 span,
+.header .site-title a,
+.container .footer-note {
+    font-style: normal !important;
+}
+
+/* 强制所有 (Rose) 不斜体 */
+*:has(> (Rose)) {
+    font-style: normal !important;
+}

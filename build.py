@@ -41,7 +41,10 @@ def convert_md_to_html(md_path, back_to_root='../../'):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} · Zheng (Rose) Luo</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="{back_to_root}assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{back_to_root}assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{back_to_root}assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="{back_to_root}site.webmanifest">
     <link rel="stylesheet" href="{back_to_root}css/style.css">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -134,7 +137,10 @@ def generate_list_page(items, page_type, title, subtitle):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} · Zheng (Rose) Luo</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="css/style.css">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -176,7 +182,6 @@ def generate_list_page(items, page_type, title, subtitle):
 def generate_index_page(latest_posts):
     """生成 index.html（首页）"""
     
-    # 生成 Latest Posts HTML
     latest_posts_html = ''
     for item in latest_posts:
         latest_posts_html += f'''
@@ -192,7 +197,10 @@ def generate_index_page(latest_posts):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zheng (Rose) Luo · Personal Website</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="css/style.css">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -217,18 +225,18 @@ def generate_index_page(latest_posts):
         </div>
         <div class="avatar-info">
             <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
-                <span>Zheng Luo</span>
+                <span>Zheng (Rose) Luo</span>
                 <span style="font-size: 0.82rem; font-weight: 300; color: #8a8a8a; white-space: nowrap; font-family: 'JetBrains Mono', 'Consolas', monospace;">
                     roughly like "Jung" in Jungle · feel free to call me Rose
                 </span>
             </h1>
             <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-            <p> applying to NeuroAI PhD programs for Fall 2027</p>
             <p style="color: #4a4a4a; margin-top: 0.1rem; font-size: 0.95rem;">
-                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; color: #8a8a8a;">
-                    From toughness emerging among atoms to intelligence emerging among neurons
+                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; font-style: italic; color: #5f5f5f;">
+                    applying to NeuroAI PhD programs for Fall 2027
                 </span>
             </p>
+            <p class="avatar-tagline">"From toughness emerging among atoms to intelligence emerging among neurons"</p>
         </div>
     </div>
 
@@ -237,10 +245,9 @@ def generate_index_page(latest_posts):
         <div class="about-section">
             <h2>About</h2>
             <p style="font-size: 0.95rem;">
-                My doctoral research centers on material failure under local field concentration. I study how polymer network topology manipulates 
-                fracture and plasticity in soft materials, and extend ideas of fracture mechanics into 
-                continuum electrodynamics — formulating electrical breakdown toughness
-                as a new material parameter to inform the design of high-voltage energy storage systems.
+                My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
+                fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
+                <strong>electrical breakdown toughness</strong> as a new material parameter to inform the design of high-voltage energy storage systems.
             </p>
             <p style="font-size: 0.95rem; margin-top: 0.5rem;">
                 I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 

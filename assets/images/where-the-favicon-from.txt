@@ -1,0 +1,3 @@
+https://github.com/qwe-153/favicon-forge
+https://oss-zh-helper.netlify.app
+（这两个是同一个项目，下面那个是在线网页）
