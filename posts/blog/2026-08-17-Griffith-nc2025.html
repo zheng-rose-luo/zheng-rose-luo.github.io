@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading McCoy & Griffiths (2025): Distilling Bayesian Priors into Neural Networks · Zheng (Rose) Luo</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="../../css/style.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+<div class="container">
+    
+    <div class="header">
+        <div class="site-title"><a href="../../index.html">Zheng (Rose) Luo</a></div>
+        <div class="nav">
+            <a href="../../index.html">About</a>
+            <a href="../../blog.html">Blog</a>
+            <a href="../../notes.html">Notes</a>
+            <a href="../../projects.html">Projects</a>
+        </div>
+    </div>
+
+    <div class="post-content" style="margin-top: 1rem;">
+        <h1 id="reading-mccoy-griffiths-2025-distilling-bayesian-priors-into-neural-networks">Reading McCoy &amp; Griffiths (2025): Distilling Bayesian Priors into Neural Networks</h1>
+<h2 id="what-the-six-figures-tell-us">What the Six Figures Tell Us</h2>
+<p><strong>Figure 1</strong> is the roadmap. Panel (a) lays out the dilemma: Bayesian models learn fast but are rigid; neural networks are flexible but slow to learn from small data. Panel (b) draws the solution — sample a bunch of artificial languages from a Bayesian prior, then have a neural network meta-learn on these tasks, so it picks up the Bayesian sense of "what kind of language is more plausible."</p>
+<p><strong>Figure 2</strong> gets into the mechanics. It uses MAML, a meta-learning algorithm whose core idea is to teach the model <em>how to learn new things</em>. The model is exposed to many different artificial languages, each time with only a few examples, and asked to adapt quickly. The end product is a good set of initial parameters — with this starting point, a few gradient steps on a new language are enough to get good performance.</p>
+<p><strong>Figure 3</strong> shows the first experimental result. On 56 artificial formal languages, the prior-trained network reaches the same performance as a standard network with only about one-tenth of the data — matching the data efficiency of the Bayesian model itself. But inference is orders of magnitude faster: as quick as 10 milliseconds, compared to days for the Bayesian learner.</p>
+<p><strong>Figure 4</strong> switches to real English. On an 8.6-million-word corpus, the prior-trained network beats traditional baselines like 5-gram models. And the less training data is available, the bigger the advantage of prior-training — exactly where inductive bias should matter most.</p>
+<p><strong>Figure 5</strong> digs deeper into specific linguistic abilities. It tests recursion (e.g., multiple levels of prepositional phrases) and priming (repeating a sentence lowers the model's surprise at seeing it again). The prior-trained network outperforms the standard one on both, showing that the distilled bias does shape how the model processes language.</p>
+<p><strong>Figure 6</strong> is a control experiment. The authors deliberately remove either "recursion" or "synchrony" from the meta-training primitives, and the model performs worse on tasks that depend on those features. This confirms that what the model learned is indeed the targeted bias, not some generic improvement.</p>
+<p>The whole logic chain is clear: <strong>identify the problem (Figure 1) → propose a solution (Figure 2) → test on simple tasks (Figure 3) → test on complex tasks (Figure 4) → probe specific capacities (Figure 5) → confirm the mechanism (Figure 6)</strong>.</p>
+<h2 id="what-this-paper-does">What This Paper Does</h2>
+<p>In one sentence: the authors use meta-learning as a bridge to transfer the Bayesian model's judgment of "what kind of language is simpler" into a neural network. The result is a system that learns fast from few examples like a Bayesian model, yet remains flexible enough to handle large-scale real-world data like a neural network. It's essentially using a connectionist system to approximate symbol-like generalization.</p>
+<h2 id="my-reflection">My Reflection</h2>
+<p>A short video changed my mind. I had always believed that vertical walls don't get dirty — until I watched someone power-washing a park wall. That single clip overturned years of implicit belief, and what struck me even more was that I could clearly feel my internal model being revised. At the time I didn't have the language for it, but now I think what I experienced was an inductive bias being updated by a single data point — the kind of rapid revision that humans do effortlessly and that standard neural networks struggle with. This paper gave me a concrete computational framework for that intuition. The authors show that meta-learning on structured priors can give neural networks exactly this ability: to generalize sharply from minimal evidence. It also made me think about why LLMs feel both human-like and deeply alien at the same time. Every parameter of an LLM is stored in a computer, fully accessible — unlike the human brain — which offers an unprecedented opportunity to examine intelligence from the inside. When a paper can tell us precisely where a model's inductive bias comes from and how it behaves, it provides a testable platform for understanding how any system — biological or artificial — generalizes from limited data. That's ultimately what draws me to this field: the chance to study intelligence not as a metaphor, but as an engineering problem you can actually take apart and measure.</p>
+<hr />
+<hr />
+<p>title: 读McCoy &amp; Griffiths (2025)：把贝叶斯先验"教"给神经网络
+date: 2026-08-24
+excerpt: 一篇把贝叶斯模型的强归纳偏置和神经网络的灵活性结合起来的Nature Communications文章，恰好回应了我对"一个视频推翻多年信念"这个日常体验的好奇。
+tags: 认知科学 · 元学习 · 归纳偏置 · 贝叶斯模型 · 神经网络</p>
+<hr />
+<h1 id="mccoy-griffiths-2025">读McCoy &amp; Griffiths (2025)：当贝叶斯先验被蒸馏进神经网络</h1>
+<h2 id="_1">六张图在说什么</h2>
+<p><strong>图1</strong>是整篇论文的"地图"。左半部分说了个现实困境：贝叶斯模型学得快但太死板，神经网络灵活但学得慢。右半部分画了条出路——用贝叶斯模型生成一堆人工语言任务，让神经网络在这些任务上做元学习，把贝叶斯那种"知道什么语言更合理"的感觉学到手。</p>
+<p><strong>图2</strong>讲具体怎么操作。用的是MAML这个元学习算法，核心思路就是让模型学会"怎么学新东西"。模型被放到很多不同的人工语言上训练，每次只给少量例句，然后要求它快速适应。最终产出一个好的初始参数——有了这个起点，遇到新语言时随便更新几步就能上手。</p>
+<p><strong>图3</strong>是第一个实验结果。在56种人工语言上，经过先验训练的神经网络用十分之一的数据就能达到普通网络的水平，数据效率直追贝叶斯模型。但推理速度比贝叶斯快得多——最快只要10毫秒，而贝叶斯可能要算好几天。</p>
+<p><strong>图4</strong>把任务换成了真实英语。在800多万词的语料上，先验训练的网络表现比传统基线模型更好。而且训练数据越少，先验训练带来的优势越明显——这就是归纳偏置起作用的地方。</p>
+<p><strong>图5</strong>挖得更深，专门看模型有没有学到具体的语法能力。测试了递归结构（比如多层介词短语）和启动效应（重复句子会让模型对后续句子的预期变低）。结果先验网络在两个任务上都比普通网络表现好，说明蒸馏进去的偏置确实在影响模型怎么处理语言。</p>
+<p><strong>图6</strong>是个控制实验。作者故意从元训练里拿掉"递归"或"同步"这两个基本规则，结果模型在依赖这些规则的任务上果然变差了。这就证明了模型学到的确实是有针对性的偏置，不是随便什么通用的改进。</p>
+<p>整条逻辑链其实挺清楚：<strong>问题是什么（图1）→ 怎么解决（图2）→ 简单任务上验证（图3）→ 复杂任务上验证（图4）→ 深挖具体能力（图5）→ 确认机制有效（图6）</strong>。</p>
+<h2 id="_2">整篇论文在做什么</h2>
+<p>一句话就是：作者用元学习当桥梁，把贝叶斯模型对"什么样的语言更简单"的判断标准，搬到神经网络里去了。结果是神经网络既有贝叶斯那种从少量例子快速泛化的能力，又保留了处理海量真实数据的灵活性。本质上就是用连接主义的系统去逼近符号主义式的泛化。</p>
+<h2 id="_3">我的感受</h2>
+<p>一段短视频改变了我一个根深蒂固的看法。我一直以为垂直的墙面不会脏，直到刷到一个高压水枪清洗公园墙壁的视频——那一小段画面把我多年来的隐含信念完全推翻了，而且我能清晰地感觉到自己脑子里的某个东西在被修正。当时我找不到合适的词来描述这种体验，但现在回过头看，那大概就是一个归纳偏置被单条数据点更新的过程——人类能如此高效地完成这种快速修正，而标准神经网络在小样本下却做不到。这篇论文恰好为这种直觉提供了一个具体的计算框架：在结构化先验上做元学习，可以让神经网络也拥有这种从极少量证据中做出强泛化的能力。这也让我想到为什么LLMs既让人觉得像人类，又让人觉得完全不是一回事。LLM的每一个参数都存在电脑里，完全可读，这和人类大脑截然不同，却也给了我们一个前所未有的机会去从内部观察智能的运作。当一篇论文能精确告诉我们"这个模型的归纳偏置从哪里来、包含什么、在什么情况下起作用"时，它其实是为我们提供了一个可检验的平台，去理解任何一种系统——无论是生物的还是人工的——如何从有限数据中做泛化。这大概就是我想从固体力学转到认知科学的原因：有机会把智能当作一个工程问题去拆解、去测量。</p>
+    </div>
+
+    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
+        2026-08-24
+    </div>
+
+    <div class="footer-note">
+        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
+    </div>
+</div>
+</body>
+</html>

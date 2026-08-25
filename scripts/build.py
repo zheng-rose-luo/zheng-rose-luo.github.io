@@ -275,7 +275,6 @@ def generate_index_page(latest_posts):
             </div>
             <div class="publication-item">
                 <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>.
-                <span class="pub-meta">https://doi.org/10.1007/978-3-030-70795-8_39</span>
             </div>
             <div class="publication-item">
                 <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
@@ -297,10 +296,10 @@ def generate_index_page(latest_posts):
                 <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
             </div>
             <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Kai, L., et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
+                <strong>Luo, Z.</strong> †, Kai, L. †, et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
             </div>
             <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Zhang, Y., Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
+                <strong>Luo, Z.</strong> †, Zhang, Y. †, Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
             </div>
             <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
                 † equal contribution
