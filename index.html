@@ -49,28 +49,40 @@
 
     <div class="about-grid">
 
-        <div class="about-section">
-            <h2>About</h2>
-            <p style="font-size: 0.95rem;">
-                My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
-                fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
-                electrical breakdown toughness as a new material parameter to inform the design of high-voltage energy storage systems.
-            </p>
-            <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
-                I was a visiting student in Physics at the <strong>University of Oxford</strong> and 
-                completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
-            </p>
-            <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                <strong>I am currently applying to PhD programs in NeuroAI for Fall 2027.</strong> 
-                I believe we are at a pivotal moment for understanding intelligence: LLMs offer 
-                human-like reasoning with full observability — every parameter and computation is 
-                traceable. This opens a unique window into the nature of intelligence, and I want 
-                to be part of exploring it.
-            </p>
+        <div class="about-section" style="position: relative; overflow: hidden; min-height: 280px;">
+            <!-- 裂纹网格 - 右上角 -->
+            <div style="position: absolute; top: 60px; right: -10px; width: 200px; height: 200px; opacity: 0.8; pointer-events: none; z-index: 0; background-image: url('assets/images/crack-mesh.png'); background-size: contain; background-repeat: no-repeat; background-position: top right;">
+            </div>
+
+            <!-- 大脑 - 左下角，略浅、略小 -->
+            <div style="position: absolute; bottom: 20px; left: 20px; width: 150px; height: 150px; opacity: 0.5; pointer-events: none; z-index: 0; background-image: url('assets/images/brain.png'); background-size: contain; background-repeat: no-repeat; background-position: bottom left;">
+            </div>
+            <!-- 内容 -->
+            <div style="position: relative; z-index: 1;">
+                <h2>About</h2>
+                <p style="font-size: 0.95rem;">
+                    My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
+                    fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
+                    <strong>electrical breakdown toughness</strong> as a new material parameter to inform the design of high-voltage energy storage systems.
+                </p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
+                    I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
+                    I was a visiting student in Physics at the <strong>University of Oxford</strong> and 
+                    completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
+                </p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
+                    <strong>I am currently applying to PhD programs in NeuroAI for Fall 2027.</strong> 
+                    I believe we are at a pivotal moment for understanding intelligence: LLMs offer 
+                    human-like reasoning with full observability — every parameter and computation is 
+                    traceable. This opens a unique window into the nature of intelligence, and I want 
+                    to be part of exploring it.
+                </p>
+                    <div style="text-align: right; margin-top: 0.5rem;">
             <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
         </div>
-
+            </div>
+        </div>
+        
         <div class="about-section">
             <h2>Latest Posts</h2>
             <div style="max-height: 320px; overflow-y: auto; padding-right: 8px;">
