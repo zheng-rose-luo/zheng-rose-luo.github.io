@@ -1,0 +1,57 @@
+/* Shared styles for Markdown articles and the editable portfolio. */
+body{overflow-wrap:break-word}
+img{max-width:100%}
+.meta,.textlink,.button,.eyebrow,nav,footer,.feature-media figcaption{font-size:.875rem}
+.skip-link{position:absolute;left:1rem;top:-100px;background:white;padding:12px;z-index:10}
+.skip-link:focus{top:1rem}
+.hero{max-width:none;padding-top:55px}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:45px;align-items:start}
+.hero-layout .portrait{margin-top:48px;width:150px;height:180px;object-fit:cover;border-radius:5px}
+.hero-layout p:not(.eyebrow):not(.lead){color:var(--muted);margin-top:18px}
+.hero .lead{max-width:770px;margin-top:23px}
+.hero .actions a{font-size:.94rem}
+.small-project h2{font:600 1.1rem/1.4 Arial,Helvetica,sans-serif;margin:8px 0}
+.small-project h2 a{text-decoration:none;color:var(--ink)}
+.small-project .meta{font-size:.875rem}
+.small-project .textlink{display:inline-block;margin-top:10px}
+.small-project .meta:first-child{margin-top:0}
+.portfolio-row{display:grid;grid-template-columns:225px minmax(0,1fr);gap:35px;border-top:1px solid var(--rule);padding:34px 0}
+.portfolio-row h2{font-size:1.9rem;margin:8px 0 17px}
+.portfolio-row h2 a{color:var(--ink);text-decoration:none}
+.portfolio-row .textlink{display:inline-block;margin-top:14px}
+.portfolio-image img{max-height:245px;object-fit:contain;background:white;padding:12px;border:1px solid var(--rule)}
+.page-title>p:not(.eyebrow):not(.meta){font-size:1.08rem;color:var(--muted);max-width:810px}
+.page-title .notebook-label{font-size:.875rem;margin-top:12px}
+.prose{min-width:0;max-width:760px}
+.prose.reading{margin-left:auto;margin-right:auto}
+.prose h1{font-size:clamp(2.4rem,4.5vw,3.6rem);margin-bottom:26px}
+.prose h2{font-size:1.9rem;border-top:1px solid var(--rule);padding-top:27px;margin:34px 0 17px}
+.prose h3{margin:23px 0 12px}
+.prose ul,.prose ol{padding-left:25px}
+.prose li{margin:8px 0}
+.prose li p{margin:8px 0}
+.prose figure{margin:27px 0}
+.prose figure img{max-height:470px;object-fit:contain;background:white;border:1px solid var(--rule);padding:12px}
+.prose figcaption{font-size:.875rem;color:var(--muted);line-height:1.6;margin-top:10px}
+.prose blockquote{font:1.13rem/1.7 Georgia,serif;border-left:3px solid var(--accent);padding:8px 0 8px 22px;margin:24px 0}
+.prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:24px 0}
+.prose th,.prose td{border-bottom:1px solid var(--rule);padding:10px 13px;text-align:left}
+.prose pre{overflow:auto;background:var(--soft);padding:16px;font-size:.9rem}
+.prose hr{border:0;border-top:1px solid var(--rule);margin:24px 0}
+.prose details{margin:25px 0}
+.page-toc{align-self:start;position:sticky;top:24px;font-size:.875rem;border-top:1px solid var(--rule);padding-top:16px}
+.page-toc .toc{position:static;border:0;padding:0;font-size:inherit}
+.page-toc ul{list-style:none;padding:0}
+.page-toc ul ul{padding-left:10px}
+.page-toc a{display:block;text-decoration:none;margin:13px 0;line-height:1.5}
+.interest-intro{max-width:760px;margin:48px auto 18px}
+.interests>p:first-of-type{font-size:1.15rem;color:var(--muted)}
+.publications{margin-top:25px}
+.writing-list{max-width:830px}
+.writing-item{border-top:1px solid var(--rule);padding:24px 0}
+.writing-item h2{font-size:1.6rem;margin:8px 0 13px}
+.writing-item h2 a{color:var(--ink);text-decoration:none}
+.writing-item p:not(.meta){color:var(--muted)}
+.back-link{margin:35px 0 0;padding-top:22px;border-top:1px solid var(--rule);font-size:.94rem}
+@media(max-width:800px){.hero-layout{grid-template-columns:minmax(0,1fr) 110px;gap:25px}.hero-layout .portrait{width:110px;height:135px}.page-toc{position:static}.page-toc .toc>ul{display:flex;gap:8px 18px;flex-wrap:wrap}.page-toc a{margin:0}.page-toc .toc ul ul{display:none}.portfolio-row{grid-template-columns:175px minmax(0,1fr);gap:24px}}
+@media(max-width:540px){.hero-layout{display:block}.hero-layout .portrait{display:none}.hero{padding-top:36px}.portfolio-row{grid-template-columns:1fr}.portfolio-image img{max-width:270px;max-height:210px}.portfolio-image:empty{display:none}.page-title h1,.prose h1{font-size:2.35rem}.prose h2{font-size:1.6rem}.prose figure img{padding:6px}.interest-intro{margin-top:34px}.prose blockquote{margin-left:0;margin-right:0}.writing-item h2{font-size:1.4rem}.small-project{grid-template-columns:90px minmax(0,1fr);gap:16px}}

@@ -1,63 +1,22 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microscopic Origins of Quasi-Ideal Plasticity · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="../../site.webmanifest">
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\(', '\)']],
-                displayMath: [['$$', '$$'], ['\[', '\]']]
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-</head>
-<body>
-<div class="container">
-    
-    <div class="header">
-        <div class="site-title"><a href="../../index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="../../index.html">About</a>
-            <a href="../../blog.html">Blog</a>
-            <a href="../../notes.html">Notes</a>
-            <a href="../../projects.html">Projects</a>
-        </div>
-    </div>
-
-    <div class="post-content" style="margin-top: 1rem;">
-        <h1 id="microscopic-origins-of-quasi-ideal-plasticity">Microscopic Origins of Quasi-Ideal Plasticity</h1>
-<h2 id="introduction">Introduction</h2>
-<p>We discovered a near-critical extensible phase that exhibits quasi-ideal plasticity.</p>
-<h2 id="key-findings">Key Findings</h2>
-<p>The stress-strain curve displays a distinct rectangle-like shape:</p>
-<p>$$\sigma(\lambda) = \sigma_0 \cdot f(\lambda)$$</p>
-<p>where $f(\lambda)$ is a scaling function describing the deformation regime.</p>
-<h2 id="strain-rate-strengthening">Strain-Rate Strengthening</h2>
-<p>Unlike conventional materials, this phase strengthens with strain rate:</p>
-<p>$$\sigma_y = \sigma_{y0} \left( \frac{\dot{\epsilon}}{\dot{\epsilon}_0} \right)^n$$</p>
-<p>with $n &gt; 0$, indicating rate-dependent plasticity.</p>
-<h2 id="implications">Implications</h2>
-<p>This behavior outperforms conventional materials in impact energy absorption, making it suitable for protective applications.</p>
-    </div>
-
-    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
-        2026-05-01
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a Flat Tensile Curve Can Tell Us | Zheng (Rose) Luo</title><meta name="description" content="Using loading rate, recovery and repeated tests to investigate a near-ideal-plastic response in polymer networks.">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/content.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="../../index.html">Zheng (Rose) Luo</a><nav aria-label="Main navigation"><a href="../../index.html">About</a><a href="../../projects.html">Research</a><a href="../../interests.html">Interests</a><a href="../../blog.html" aria-current="page">Writing</a><a href="../../notes.html">Notes</a></nav></header>
+<main id="main"><div class="page-title"><p class="eyebrow">Research writing</p><h1>What a Flat Tensile Curve Can Tell Us</h1>
+<p class="intro">Using loading rate, recovery and repeated tests to investigate a near-ideal-plastic response in polymer networks.</p><p class="meta">2026-05-01 · Updated 2026-11-24</p></div><article class="prose reading"><p>Some of the polymer formulations in my doctoral research extend over a large range while their engineering stress changes comparatively little. This near-ideal-plastic response raises a useful question: which features of the network allow large deformation while continuing to carry load?</p>
+<h2 id="separating-the-observations">Separating the observations</h2>
+<p>A flat engineering stress curve is an observation about force relative to the specimen's initial cross-sectional area. Interpreting it requires attention to the changing specimen geometry, deformation uniformity and what happens after unloading. Similar curve shapes can arise through different physical processes.</p>
+<p>In this project, I examine formulations reached through changes in network composition and preparation history. Preliminary tensile measurements also show that the response depends on loading rate. These observations motivate comparisons across formulations and loading conditions, rather than an explanation based on curve shape alone.</p>
+<h2 id="comparing-like-with-like">Comparing like with like</h2>
+<p>One practical choice is to compare curves over a common deformation interval. This allows plateau stress and tensile input work to be evaluated without allowing a longer record to dominate the comparison simply because it extends farther.</p>
+<p>Repeated specimens are important for separating a rate-dependent trend from specimen variation. Unloading and recovery measurements answer another question: how much of the deformation is immediately recovered, and how much persists on the observation timescale?</p>
+<h2 id="from-tensile-response-to-an-application">From tensile response to an application</h2>
+<p>The area under an engineering stress–strain loading curve gives the tensile input work per initial specimen volume. Establishing dissipation requires additional information about unloading and recovery. Establishing impact performance requires an appropriate dynamic test and comparison under matched conditions.</p>
+<p>My current work therefore uses the tensile response to identify promising material and structural questions. The next checks concern repeatability, recovery, the range of loading rates and how a proposed structure transfers an applied load into tensile deformation. Application-level impact performance remains to be established.</p>
+<p><a href="../projects/polymer-network-phase-diagram.html">Read the polymer-network project</a>.</p></article><p class="back-link"><a href="../../blog.html">All writing</a></p></main>
+<footer><span>Zheng (Rose) Luo</span><a href="mailto:rose.zheng.luo@gmail.com">rose.zheng.luo@gmail.com</a><a href="../../notes.html">Personal notes</a></footer>
+</div></body></html>

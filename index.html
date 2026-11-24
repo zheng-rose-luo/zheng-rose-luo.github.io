@@ -1,159 +1,18 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zheng (Rose) Luo · Personal Website</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-</head>
-<body>
-<div class="container">
-
-    <div class="header">
-        <div class="site-title"><a href="index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="index.html" class="active">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="notes.html">Notes</a>
-            <a href="projects.html">Projects</a>
-        </div>
-    </div>
-
- <div class="avatar-row">
-        <div class="avatar">
-            <img src="assets/images/MyPhoto.jpg" alt="Zheng (Rose) Luo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-        </div>
-        <div class="avatar-info">
-            <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
-                <span>Zheng Luo</span>
-                <span style="font-size: 0.82rem; font-weight: 300; color: #8a8a8a; white-space: nowrap; font-family: 'JetBrains Mono', 'Consolas', monospace;">
-                    roughly like "Jung" in Jungle · feel free to call me Rose
-                </span>
-            </h1>
-            <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-            <p> applying to NeuroAI PhD programs for Fall 2027</p>
-            <p style="color: #4a4a4a; margin-top: 0.1rem; font-size: 0.95rem;">
-                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; color: #8a8a8a;">
-                    From toughness emerging among atoms to intelligence emerging among neurons
-                </span>
-            </p>
-        </div>
-    </div>
-
-    <div class="about-grid">
-
-        <div class="about-section" style="position: relative; overflow: hidden; min-height: 280px;">
-            <!-- 裂纹网格 - 左上角，往下移 -->
-            <div style="position: absolute; top: 60px; left: -10px; width: 200px; height: 200px; opacity: 0.8; pointer-events: none; z-index: 0; background-image: url('assets/images/crack-mesh.png'); background-size: contain; background-repeat: no-repeat; background-position: top left;">
-            </div>
-            <!-- 大脑 - 右下角，略浅、略小、往左往上 -->
-            <div style="position: absolute; bottom: 20px; right: 20px; width: 150px; height: 150px; opacity: 0.5; pointer-events: none; z-index: 0; background-image: url('assets/images/brain.png'); background-size: contain; background-repeat: no-repeat; background-position: bottom right;">
-            </div>
-            <!-- 内容 -->
-            <div style="position: relative; z-index: 1;">
-                <h2>About</h2>
-                <p style="font-size: 0.95rem;">
-                    My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
-                    fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
-                    <strong>electrical breakdown toughness</strong> as a new material parameter to inform the design of high-voltage energy storage systems.
-                </p>
-                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                    I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
-                    I was a visiting student in Physics at the <strong>University of Oxford</strong> and 
-                    completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
-                </p>
-                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                    <strong>I am currently applying to PhD programs in NeuroAI for Fall 2027.</strong> 
-                    I believe we are at a pivotal moment for understanding intelligence: LLMs offer 
-                    human-like reasoning with full observability — every parameter and computation is 
-                    traceable. This opens a unique window into the nature of intelligence, and I want 
-                    to be part of exploring it.
-                </p>
-                <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
-            </div>
-        </div>
-        
-        <div class="about-section">
-            <h2>Latest Posts</h2>
-            <div style="max-height: 320px; overflow-y: auto; padding-right: 8px;">
-                <div class="blog-list">
-                    
-            <div class="post-item">
-                <span class="post-title"><a href="posts/notes/2026-08-25-brain-sign-with-bo-wen.html" style="color: inherit;">Sketching a Brain — My Website Icon Journey</a></span>
-                <span class="post-date">2026-08-25</span>
-                <div class="post-excerpt">I wanted an abstract brain as my personal website icon. Code-generated ones didn't work out, but I loved the style of bold outlines with semi-transparent color fills. So Bo wen (my illustrator friend) and I explored hand-drawing a brain based on actual brain maps.</div>
-            </div>
-            <div class="post-item">
-                <span class="post-title"><a href="posts/notes/2026-08-23-art-science-need-tech.html" style="color: inherit;">Art and Science Both Rest on Technology</a></span>
-                <span class="post-date">2026-08-23 16:30:00</span>
-                <div class="post-excerpt">Both art and science require technology as their foundation — like the stones of an endless staircase... no, like the central pillar of an infinite spiral staircase, guiding the way upward.</div>
-            </div>
-            <div class="post-item">
-                <span class="post-title"><a href="posts/notes/2026-08-23-abstraction-easier-than-execution.html" style="color: inherit;">Abstraction Is Always Easier Than Execution</a></span>
-                <span class="post-date">2026-08-23 15:30:00</span>
-                <div class="post-excerpt">Saying it abstractly is always far easier than actually making it happen.</div>
-            </div>
-            <div class="post-item">
-                <span class="post-title"><a href="posts/notes/2026-08-22-more-intelligence-alike-more-planet.html" style="color: inherit;">More Intelligences Beyond Humans, More Planets Beyond Earth</a></span>
-                <span class="post-date">2026-08-22</span>
-                <div class="post-excerpt">Discovering machine intelligence beyond human intelligence — I still think it ranks alongside the shift from geocentrism to heliocentrism.</div>
-            </div>
-                </div>
-            </div>
-            <p style="margin-top: 0.8rem;"><a href="blog.html" style="color: #5f5f5f;">View all posts →</a></p>
-        </div>
-
-        <div class="about-section">
-            <h2>Publications</h2>
-
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
-            </div>
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>.
-            </div>
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
-            </div>
-
-            <div style="margin-top: 0.8rem; font-style: italic; color: #5f5f5f; font-size: 0.9rem;">
-                <strong>In preparation:</strong>
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Zhang, G., Lu, T., &amp; Suo, Z. Phase diagram of a minimal polymer network: From brittle solids to extremely extensible gels.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Lu, T., Zhang, G., &amp; Suo, Z. Solvent history as a design principle for decoupling stiffness and toughness in crosslinked elastomers.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, &amp; Suo, Z. On the deformable-to-rigid crossover in dielectric breakdown: When can mechanical deformation be ignored?
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong> †, Kai, L. †, et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong> †, Zhang, Y. †, Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
-            </div>
-            <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
-                † equal contribution
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Zheng (Rose) Luo</title><meta name="description" content="Zheng Luo studies physical systems through theory and experiment, and aims to connect the computational principles of brains with more capable artificial intelligence.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/content.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="index.html">Zheng (Rose) Luo</a><nav aria-label="Main navigation"><a href="index.html" aria-current="page">About</a><a href="projects.html">Research</a><a href="interests.html">Interests</a><a href="blog.html">Writing</a><a href="notes.html">Notes</a></nav></header>
+<main id="main"><section class="hero"><div class="hero-layout"><div><p class="eyebrow">Brain computation · Learning · NeuroAI</p><h1 id="zheng-luo">Zheng Luo</h1>
+<p class="lead">I want to understand how brains compute, learn and adapt—and use those insights to build better artificial intelligence.</p>
+<p>I am a PhD candidate in Solid Mechanics at Xi’an Jiaotong University, applying to computational neuroscience and NeuroAI PhD programs for Fall 2027. My research combines mathematical modelling, numerical simulation and experiments. Earlier projects in computational neuroscience introduced me to neuronal energetics and astrocyte dynamics.</p>
+<p>I am interested in a two-way exchange: using artificial networks to investigate possible explanations of brain computation, and testing whether principles from neuroscience can improve artificial learning. I hope to develop this work through close contact with experiments, including hands-on participation in behavioural and neural data collection.</p></div>
+<img class="portrait" src="assets/images/MyPhoto.jpg" alt="Zheng Luo"></div>
+<div class="actions"><a class="button" href="interests.html">Research interests</a><a href="projects.html">Explore my research</a><a href="mailto:rose.zheng.luo@gmail.com">Get in touch</a></div></section><section aria-labelledby="selected-heading"><div class="section-title"><h2 id="selected-heading">Selected research</h2><a class="textlink" href="projects.html">All projects</a></div><article class="feature"><figure class="feature-media"><img src="assets/images/research/electrical-field.png" alt="Electrostatic simulation around a prescribed conducting tip"><figcaption>Electrostatic simulation around a prescribed conducting tip.</figcaption></figure><div class="feature-copy"><p class="eyebrow">Theory, computation and experiment</p><h2>Electrical Failure and Defect Tolerance</h2><p>Connecting energetic theories of electrical failure with controlled defects, reproducible fabrication and measurements of material response.</p><a class="textlink" href="posts/projects/dielectric-breakdown-theory.html">Read the research story</a></div></article><div class="research-pair"><article class="small-project"><img loading="lazy" src="assets/images/research/neuroeff.jpeg" alt="Archived neuroEFF MATLAB interface"><div><p class="meta">2019–2020</p><h2><a href="posts/projects/neuroeff.html">neuroEFF — Neuronal Information and Energy Measures</a></h2>
+<p>A MATLAB tool for studying how temperature, noise and stimulus intensity affect information and energy measures in a conductance-based cortical neuron model.</p><p class="meta">Earlier computational research · Conference paper</p><a class="textlink" href="posts/projects/neuroeff.html">Read the project</a></div></article><article class="small-project"><img loading="lazy" src="assets/images/research/polymer-response.png" alt="Representative tensile-response curves for four polymer formulations"><div><p class="meta">2022–present</p><h2><a href="posts/projects/polymer-network-phase-diagram.html">Polymer Networks and Mechanical Response</a></h2>
+<p>Investigating how composition, preparation history and loading conditions shape the response of polymer networks.</p><p class="meta">Doctoral research · Working manuscripts</p><a class="textlink" href="posts/projects/polymer-network-phase-diagram.html">Read the project</a></div></article></div></section><section class="below"><div><h2>Two connected ambitions</h2><p>Understanding how brains compute, and testing whether those insights can help artificial systems learn and adapt more effectively.</p><p><a href="interests.html">Questions and approaches I want to pursue</a></p></div><div><h2>Writing and small discoveries</h2><ul><li><a href="posts/blog/2026-08-17-Griffith-nc2025.html">Distilling Bayesian Priors into Neural Networks</a></li><li><a href="posts/blog/2026-07-25-solvent-history.html">What a Polymer Network Remembers About Its Preparation</a></li></ul><p><a href="notes.html">Personal notes, sketches and everyday observations</a></p></div></section></main>
+<footer><span>Zheng (Rose) Luo</span><a href="mailto:rose.zheng.luo@gmail.com">rose.zheng.luo@gmail.com</a><a href="notes.html">Personal notes</a></footer>
+</div></body></html>

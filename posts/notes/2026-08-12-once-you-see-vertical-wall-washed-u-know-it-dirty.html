@@ -1,79 +1,21 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Self-Consciousness and Few-Shot Learning · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="../../site.webmanifest">
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\(', '\)']],
-                displayMath: [['$$', '$$'], ['\[', '\]']]
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-</head>
-<body>
-<div class="container">
-    
-    <div class="header">
-        <div class="site-title"><a href="../../index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="../../index.html">About</a>
-            <a href="../../blog.html">Blog</a>
-            <a href="../../notes.html">Notes</a>
-            <a href="../../projects.html">Projects</a>
-        </div>
-    </div>
-
-    <div class="post-content" style="margin-top: 1rem;">
-        <h1 id="human-self-consciousness-and-few-shot-learning">Human Self-Consciousness and Few-Shot Learning</h1>
-<hr />
-<p>For humans, a single piece of information that violates expectations can change cognition — provided there is sufficient self-consciousness. One must be aware that what they have seen does not align with their prior expectations.</p>
-<p>For AI, the field of few-shot learning probably has developed similar approaches? I'm curious. Wondering if it resembles how PINN directly injects physical concepts into neural networks.</p>
-<hr />
-<p>from DeepSeek:
-<strong>AI's "one-shot cognitive shift" is called meta-learning.</strong> The core idea is "learning to learn." Take the MAML algorithm, for example — it doesn't memorize data directly; instead, it trains an extremely sensitive initial model. When you give it a new sample (like a face), it only needs one gradient descent step to dramatically adjust its cognition. This mirrors human working memory — fast updating but prone to forgetting — essentially a rapid drift in parameter space.</p>
-<p><strong>Closer to your description of "self-awareness" is Test-Time Training.</strong> When encountering an unexpected sample during inference, the model temporarily fine-tunes itself, dynamically updating its internal representations. This is more "self-doubting" than meta-learning, because it acknowledges "my previous cognition might be wrong." However, the cost is significant computational overhead.</p>
-<hr />
-<p><strong>PINN.</strong> After asking AI, I understand its principle to be: constraining the solution space so that it necessarily satisfies the physics? That is effectively cutting off a large portion of impossible solutions under the given physical laws?</p>
-<p>Whether hard constraints or soft constraints.</p>
-<p>Self-consciousness — knowing that what you see does not match your prior expectations.</p>
-<hr />
-<p>— THE END —</p>
-<hr />
-<h1 id="_1">人的自我意识与少样本学习</h1>
-<hr />
-<p>对人来说，不符合预期的话，只要看一个样本就能更改自己的认知。当然这需要比较高的self-consciousness。自己知道自己看到的什么不符合自己原有的预期。</p>
-<p>对AI来说，少样本学习的领域发展大概有发展类似的领域吧？蛮好奇的。似乎不类似于PINN直接给神经网络灌输物理概念。</p>
-<hr />
-<p>来自DeepSeek:</p>
-<p><strong>AI的“一眼改认知”叫元学习（Meta-Learning）。</strong> 核心是“学会如何学习”，比如MAML算法，它不直接记住数据，而是训练出一个极度敏感的初始模型。当你给它一个新样本（比如那张脸），它只需一步梯度下降就能剧烈调整认知。这模拟了人的工作记忆——快速刷新，但容易遗忘，本质是参数空间的快速漂移。</p>
-<p><strong>更接近你“自我意识”描述的是测试时训练（Test-Time Training）。</strong> 推理时遇到不符合预期的样本，模型会临时自我微调，动态更新内部表征。这比元学习更“自我怀疑”，因为它承认“我之前的认知可能错了”，但代价是计算开销极大。</p>
-<hr />
-<p><strong>PINN。</strong> 问AI之后我理解这个的原理是：通过约束使得解空间必然满足物理？也就是砍掉了一大部分该物理定律下不可能的解空间？</p>
-<p>不论是硬约束还是软约束。</p>
-<p>self-consciousness——自己知道自己看到的什么不符合自己原有的预期。</p>
-<hr />
-<p>— 完 —</p>
-    </div>
-
-    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
-        2026-08-12
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When One Observation Changes an Expectation | Zheng (Rose) Luo</title><meta name="description" content="A short video of a wall being cleaned made me notice—and revise—an assumption I had never explicitly examined.">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/content.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="../../index.html">Zheng (Rose) Luo</a><nav aria-label="Main navigation"><a href="../../index.html">About</a><a href="../../projects.html">Research</a><a href="../../interests.html">Interests</a><a href="../../blog.html">Writing</a><a href="../../notes.html" aria-current="page">Notes</a></nav></header>
+<main id="main"><div class="page-title"><p class="eyebrow">Personal notebook</p><h1>When One Observation Changes an Expectation</h1>
+<p class="intro">A short video of a wall being cleaned made me notice—and revise—an assumption I had never explicitly examined.</p><p class="meta">2026-08-12 · Updated 2026-11-24</p><p class="notebook-label">A personal observation or question, recorded at the time of writing.</p></div><article class="prose reading"><p>I used to assume that vertical walls would not become very dirty. Then I watched a short video of a wall being pressure-washed. The difference between the cleaned and uncleaned areas was striking, and my assumption changed almost immediately.</p>
+<p>What interests me is the experience of noticing a mismatch between what I expected and what I saw. How much prior experience made that apparently sudden revision possible? What exactly changed: a belief about this wall, about vertical surfaces, or about how dirt accumulates?</p>
+<p>This made me curious about rapid learning in artificial systems, including few-shot learning and meta-learning. My initial notes drew much stronger analogies between these ideas, working memory and self-consciousness, partly prompted by an AI-generated explanation. Those analogies need separate evidence. This observation alone does not identify a learning mechanism or establish that conscious self-monitoring is required.</p>
+<p>For now, I want to keep the everyday question: <strong>what lets one new observation reorganise something we thought we already knew?</strong></p>
+<p><a href="../blog/2026-08-17-Griffith-nc2025.html">A related reading note on structured priors and learning</a>.</p>
+<h2 id="_1">一次观察改变了预期</h2>
+<p>我原来隐约觉得，垂直的墙面应该不会特别脏。直到看见一个高压水枪清洗墙面的视频，洗过和没洗过的部分差别那么大，这个未经检验的想法几乎立刻就改变了。</p>
+<p>令我感兴趣的是，自己能察觉“原来想的”和“刚刚看到的”不一致。看起来只用了一次观察的修正，背后依赖多少已有经验？改变的是对这面墙的判断、对垂直表面的判断，还是对污垢积累方式的理解？</p>
+<p>这让我想到人工系统的快速学习、少样本学习和元学习。最初的记录受到一段 AI 解释的影响，把它们与工作记忆、自我意识联系得过于直接了。这里需要各自独立的证据；一次生活观察还不能确定学习机制，也不能说明有意识的自我监测是必要条件。</p>
+<p>我仍然想保留这个问题：<strong>是什么让一条新信息，重新组织了我们以为自己已经知道的东西？</strong></p></article><p class="back-link"><a href="../../notes.html">All notes</a></p></main>
+<footer><span>Zheng (Rose) Luo</span><a href="mailto:rose.zheng.luo@gmail.com">rose.zheng.luo@gmail.com</a><a href="../../notes.html">Personal notes</a></footer>
+</div></body></html>

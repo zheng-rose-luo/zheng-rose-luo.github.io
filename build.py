@@ -1,449 +1,166 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-import os
-import markdown
-import re
-from datetime import datetime
+"""Build GitHub Pages HTML from editable pages/*.md and posts/*/*.md."""
+from html import escape
 from pathlib import Path
+import re
+import markdown
 
-def extract_front_matter(content):
-    """提取 Markdown 文件头部的元数据"""
-    front_matter = {'title': '未命名文章', 'date': '', 'excerpt': '', 'tags': ''}
-    
-    match = re.match(r'^---\n(.*?)\n---\n(.*)', content, re.DOTALL)
+ROOT = Path(__file__).resolve().parent
+NAME = 'Zheng (Rose) Luo'
+EMAIL = 'rose.zheng.luo@gmail.com'
+NAV = [('index.html', 'About'), ('projects.html', 'Research'),
+       ('interests.html', 'Interests'), ('blog.html', 'Writing'), ('notes.html', 'Notes')]
+
+
+def read_md(path):
+    raw = path.read_text(encoding='utf-8-sig').replace('\r\n', '\n')
+    match = re.match(r'^---\n(.*?)\n---\s*\n(.*)', raw, re.S)
+    meta = {}
     if match:
-        meta_text = match.group(1)
-        content = match.group(2)
-        for line in meta_text.split('\n'):
-            if ': ' in line:
-                key, value = line.split(': ', 1)
-                front_matter[key.strip()] = value.strip()
-    
-    return front_matter, content
+        for line in match[1].splitlines():
+            if ':' in line:
+                key, value = line.split(':', 1)
+                meta[key.strip()] = value.strip().strip('"').strip("'")
+        raw = match[2]
+    meta.setdefault('title', path.stem.replace('-', ' '))
+    return meta, raw
 
-def convert_md_to_html(md_path, back_to_root='../../'):
-    """将 Markdown 文件转换为 HTML 文章详情页"""
-    
-    with open(md_path, 'r', encoding='utf-8') as f:
-        raw_content = f.read()
-    
-    front_matter, content = extract_front_matter(raw_content)
-    md = markdown.Markdown(extensions=['extra', 'toc', 'codehilite'])
-    html_body = md.convert(content)
-    
-    title = front_matter.get('title', '文章')
-    date = front_matter.get('date', '')
-    
-    html = f'''<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="{back_to_root}assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{back_to_root}assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{back_to_root}assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="{back_to_root}site.webmanifest">
-    <link rel="stylesheet" href="{back_to_root}css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <script>
-        MathJax = {{
-            tex: {{
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }}
-        }};
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-</head>
-<body>
-<div class="container">
-    
-    <div class="header">
-        <div class="site-title"><a href="{back_to_root}index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="{back_to_root}index.html">About</a>
-            <a href="{back_to_root}blog.html">Blog</a>
-            <a href="{back_to_root}notes.html">Notes</a>
-            <a href="{back_to_root}projects.html">Projects</a>
-        </div>
-    </div>
 
-    <div class="post-content" style="margin-top: 1rem;">
-        {html_body}
-    </div>
+def render_md(body, prefix=''):
+    # Protect TeX from Markdown emphasis and backslash processing.
+    math = []
+    def protect(match):
+        math.append(match[0])
+        return f'MATHPLACEHOLDER{len(math)-1}END'
+    body = re.sub(r'\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([^\n]*?\\\)|(?<!\\)\$(?!\$)[^\n$]+(?<!\\)\$', protect, body)
+    md = markdown.Markdown(extensions=['extra', 'toc', 'sane_lists'],
+                           extension_configs={'toc': {'toc_depth': '2-3'}})
+    result = md.convert(body)
+    for i, value in enumerate(math):
+        result = result.replace(f'MATHPLACEHOLDER{i}END', escape(value))
+    # Root-relative assets from older notes also work in local file previews.
+    result = re.sub(r'((?:src|href)=["\'])/assets/', rf'\1{prefix}assets/', result)
+    return result, md.toc, bool(math)
 
-    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
-        {date if date else ''}
-    </div>
 
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>'''
-    
-    return html
+def shell(title, content, active, prefix='', description='', math=False, lang='en'):
+    links = ''.join(f'<a href="{prefix}{url}"' + (' aria-current="page"' if url == active else '')
+                    + f'>{label}</a>' for url, label in NAV)
+    maths = r'''<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>''' if math else ''
+    return f'''<!doctype html>
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(title)} | {NAME}</title><meta name="description" content="{escape(description, quote=True)}">
+<link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="{prefix}assets/images/apple-touch-icon.png">
+<link rel="manifest" href="{prefix}site.webmanifest"><link rel="stylesheet" href="{prefix}css/style.css"><link rel="stylesheet" href="{prefix}css/content.css">{maths}</head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="{prefix}index.html">{NAME}</a><nav aria-label="Main navigation">{links}</nav></header>
+<main id="main">{content}</main>
+<footer><span>{NAME}</span><a href="mailto:{EMAIL}">{EMAIL}</a><a href="{prefix}notes.html">Personal notes</a></footer>
+</div></body></html>\n'''
 
-def generate_list_page(items, page_type, title, subtitle):
-    """生成列表页（blog.html / notes.html / projects.html）"""
-    
-    items_sorted = sorted(items, key=lambda x: x.get('date', ''), reverse=True)
-    
-    if page_type == 'blog':
-        list_items = ''
-        for item in items_sorted:
-            list_items += f'''
-            <div class="post-item">
-                <h3><a href="{item['link']}" style="color: #1e1e1e; text-decoration: none;">{item['title']}</a></h3>
-                <span class="post-date">{item['date']}</span>
-                <p class="post-excerpt">{item.get('excerpt', '')}</p>
-            </div>'''
-    elif page_type == 'notes':
-        list_items = ''
-        for item in items_sorted:
-            list_items += f'''
-            <div class="note-item" style="padding: 1rem 0; border-bottom: 1px solid #ece8e2;">
-                <span class="note-date" style="font-family: Arial, sans-serif; font-size: 0.8rem; color: #6f6f6f;">{item['date']}</span>
-                <p style="margin-top: 0.2rem;">
-                    <a href="{item['link']}" style="color: #1e1e1e; text-decoration: none; font-weight: 500;">{item['title']}</a>
-                </p>
-                <p style="margin-top: 0.2rem; color: #4f4f4f;">{item.get('excerpt', '')}</p>
-            </div>'''
-    else:  # projects
-        list_items = ''
-        for item in items_sorted:
-            tags_html = ''
-            if item.get('tags'):
-                tags_html = f'<div class="project-tags" style="font-family: Arial, sans-serif; font-size: 0.75rem; color: #7a7a7a; margin-top: 0.2rem;">{item["tags"]}</div>'
-            list_items += f'''
-            <div class="project-item" style="padding: 1.2rem 0; border-bottom: 1px dashed #e2ddd6;">
-                <div class="project-title" style="font-weight: 600; font-size: 1.05rem;">
-                    <a href="{item['link']}" style="color: #1e1e1e; text-decoration: none;">{item['title']}</a>
-                </div>
-                <div class="project-desc" style="margin-top: 0.2rem; color: #3d3d3d;">
-                    {item.get('excerpt', '')}
-                </div>
-                {tags_html}
-            </div>'''
-    
-    html = f'''<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-</head>
-<body>
-<div class="container">
 
-    <div class="header">
-        <div class="site-title"><a href="index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="index.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="notes.html">Notes</a>
-            <a href="projects.html">Projects</a>
-        </div>
-    </div>
+def write(path, html):
+    (ROOT / path).write_text(html, encoding='utf-8')
 
-    <div class="page">
-        <div style="margin-bottom: 1.8rem; border-bottom: 1px solid #eae7e2; padding-bottom: 0.5rem;">
-            <h2 style="font-weight: 400; font-size: 1.8rem; display: inline; margin-right: 1rem;">{title}</h2>
-            <span style="color: #6f6f6f; font-size: 0.95rem;">{subtitle}</span>
-        </div>
 
-        <div class="{'blog-list' if page_type == 'blog' else 'notes-list' if page_type == 'notes' else 'project-list'}">
-            {list_items}
-        </div>
-    </div>
+def page(name):
+    meta, body = read_md(ROOT / 'pages' / f'{name}.md')
+    return meta, render_md(body)[0]
 
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>'''
-    
-    return html
 
-def generate_index_page(latest_posts):
-    """生成 index.html（首页）"""
-    
-    latest_posts_html = ''
-    for item in latest_posts:
-        latest_posts_html += f'''
-            <div class="post-item">
-                <span class="post-title"><a href="{item['link']}" style="color: inherit;">{item['title']}</a></span>
-                <span class="post-date">{item['date']}</span>
-                <div class="post-excerpt">{item.get('excerpt', '')}</div>
-            </div>'''
-    
-    html = f'''<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zheng (Rose) Luo · Personal Website</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-</head>
-<body>
-<div class="container">
+def project_card(item, compact=False):
+    image = ''
+    if item.get('image'):
+        image = f'<img loading="lazy" src="{escape(item["image"], quote=True)}" alt="{escape(item.get("image_alt", item["title"]), quote=True)}">'
+    info = f'''<p class="meta">{escape(item.get('period', ''))}</p><h2><a href="{item['link']}">{escape(item['title'])}</a></h2>
+<p>{escape(item.get('excerpt', ''))}</p><p class="meta">{escape(item.get('status', ''))}</p><a class="textlink" href="{item['link']}">Read the project</a>'''
+    if compact:
+        return f'<article class="small-project">{image}<div>{info}</div></article>'
+    return f'<article class="portfolio-row"><div class="portfolio-image">{image}</div><div>{info}</div></article>'
 
-    <div class="header">
-        <div class="site-title"><a href="index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="index.html" class="active">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="notes.html">Notes</a>
-            <a href="projects.html">Projects</a>
-        </div>
-    </div>
 
- <div class="avatar-row">
-        <div class="avatar">
-            <img src="assets/images/MyPhoto.jpg" alt="Zheng (Rose) Luo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-        </div>
-        <div class="avatar-info">
-            <h1 style="display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 0.8rem; row-gap: 0.2rem; margin-bottom: 0.2rem;">
-                <span>Zheng Luo</span>
-                <span style="font-size: 0.82rem; font-weight: 300; color: #8a8a8a; white-space: nowrap; font-family: 'JetBrains Mono', 'Consolas', monospace;">
-                    roughly like "Jung" in Jungle · feel free to call me Rose
-                </span>
-            </h1>
-            <p>PhD Candidate in Solid Mechanics, Xi'an Jiaotong University</p>
-            <p> applying to NeuroAI PhD programs for Fall 2027</p>
-            <p style="color: #4a4a4a; margin-top: 0.1rem; font-size: 0.95rem;">
-                <span style="font-family: 'JetBrains Mono', 'Consolas', monospace; font-weight: 300; color: #8a8a8a;">
-                    From toughness emerging among atoms to intelligence emerging among neurons
-                </span>
-            </p>
-        </div>
-    </div>
+def build_post(path, kind):
+    meta, body = read_md(path)
+    if meta.get('draft', '').lower() == 'true':
+        # Remove only this post's generated HTML when marking it a draft.
+        path.with_suffix('.html').unlink(missing_ok=True)
+        return None
+    prefix = '../../'
+    body = re.sub(r'^\s*# [^\n]+\n', '', body, count=1)
+    rendered, toc, math = render_md(body, prefix)
+    # Older bilingual notes use another H1 for the translated section.
+    rendered = re.sub(r'<(/?)h1(\b[^>]*)>', r'<\1h2\2>', rendered)
+    category = {'projects': 'Research project', 'blog': 'Research writing', 'notes': 'Personal notebook'}[kind]
+    date = meta.get('date', '')
+    if meta.get('updated'):
+        date += f' · Updated {meta["updated"]}'
+    status = meta.get('status', '')
+    note = '<p class="notebook-label">A personal observation or question, recorded at the time of writing.</p>' if kind == 'notes' else ''
+    header = f'''<div class="page-title"><p class="eyebrow">{category}</p><h1>{escape(meta['title'])}</h1>
+<p class="intro">{escape(meta.get('excerpt', ''))}</p><p class="meta">{escape(date)}{(' · '+escape(status)) if status else ''}</p>{note}</div>'''
+    if kind == 'projects' and 'href=' in toc:
+        content = f'{header}<div class="article-layout"><aside class="page-toc" aria-label="On this page"><p class="eyebrow">On this page</p>{toc}</aside><article class="prose">{rendered}</article></div>'
+    else:
+        content = f'{header}<article class="prose reading">{rendered}</article>'
+    active = {'projects': 'projects.html', 'blog': 'blog.html', 'notes': 'notes.html'}[kind]
+    content += f'<p class="back-link"><a href="{prefix}{active}">All {"research projects" if kind == "projects" else "writing" if kind == "blog" else "notes"}</a></p>'
+    target = path.with_suffix('.html').relative_to(ROOT).as_posix()
+    write(target, shell(meta['title'], content, active, prefix, meta.get('excerpt', ''), math, meta.get('lang', 'en')))
+    return dict(meta, link=target)
 
-    <div class="about-grid">
 
-        <div class="about-section" style="position: relative; overflow: hidden; min-height: 280px;">
-            <!-- 裂纹网格 - 左上角，往下移 -->
-            <div style="position: absolute; top: 60px; left: -10px; width: 200px; height: 200px; opacity: 0.8; pointer-events: none; z-index: 0; background-image: url('assets/images/crack-mesh.png'); background-size: contain; background-repeat: no-repeat; background-position: top left;">
-            </div>
-            <!-- 大脑 - 右下角，略浅、略小、往左往上 -->
-            <div style="position: absolute; bottom: 20px; right: 20px; width: 150px; height: 150px; opacity: 0.5; pointer-events: none; z-index: 0; background-image: url('assets/images/brain.png'); background-size: contain; background-repeat: no-repeat; background-position: bottom right;">
-            </div>
-            <!-- 内容 -->
-            <div style="position: relative; z-index: 1;">
-                <h2>About</h2>
-                <p style="font-size: 0.95rem;">
-                    My doctoral research centers on material failure under local field concentration. I study how polymer network topology governs 
-                    fracture and plasticity in soft materials, and extend these ideas into continuum electrodynamics — formulating 
-                    <strong>electrical breakdown toughness</strong> as a new material parameter to inform the design of high-voltage energy storage systems.
-                </p>
-                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                    I am advised by <strong>Prof. Zhigang Suo</strong> at Harvard University. Previously, 
-                    I was a visiting student in Physics at the <strong>University of Oxford</strong> and 
-                    completed my BA in Engineering Mechanics at XJTU (ranked 1st of 118).
-                </p>
-                <p style="font-size: 0.95rem; margin-top: 0.5rem;">
-                    <strong>I am currently applying to PhD programs in NeuroAI for Fall 2027.</strong> 
-                    I believe we are at a pivotal moment for understanding intelligence: LLMs offer 
-                    human-like reasoning with full observability — every parameter and computation is 
-                    traceable. This opens a unique window into the nature of intelligence, and I want 
-                    to be part of exploring it.
-                </p>
-                <a href="assets/pdfs/CV_Zheng_Luo_EN.pdf" class="cv-button">📄 Download CV (PDF)</a>
-            </div>
-        </div>
-        
-        <div class="about-section">
-            <h2>Latest Posts</h2>
-            <div style="max-height: 320px; overflow-y: auto; padding-right: 8px;">
-                <div class="blog-list">
-                    {latest_posts_html}
-                </div>
-            </div>
-            <p style="margin-top: 0.8rem;"><a href="blog.html" style="color: #5f5f5f;">View all posts →</a></p>
-        </div>
+def listing(items):
+    return '<div class="writing-list">' + ''.join(f'''<article class="writing-item"><p class="meta">{escape(i.get('date', ''))}</p>
+<h2><a href="{i['link']}">{escape(i['title'])}</a></h2><p>{escape(i.get('excerpt', ''))}</p></article>''' for i in items) + '</div>'
 
-        <div class="about-section">
-            <h2>Publications</h2>
-
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Gu, Z. and Su, X., 2020. Models and Policies for Environmentally Displaced Persons. <em>UMAP Journal</em>, 41(3).
-            </div>
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Li, L., Liang, D., Du, M. and Wu, Y., 2021. Energy Efficiency of Cortical Action Potential at Different Temperatures. <em>CHAOS 2020. Springer Proceedings in Complexity</em>.
-            </div>
-            <div class="publication-item">
-                <strong>Luo, Z.</strong>, Li, L., Wei G., Tian Y., Xu B., Du M. and Wu, Y., 2021. Multi-Astrocyte Chain Dynamics Modelling of Aquaporin-4-dependent Extracellular Space Potassium Diffusion. <em>8th International Conference on Vibration Engineering</em>.
-            </div>
-
-            <div style="margin-top: 0.8rem; font-style: italic; color: #5f5f5f; font-size: 0.9rem;">
-                <strong>In preparation:</strong>
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Zhang, G., Lu, T., &amp; Suo, Z. Phase diagram of a minimal polymer network: From brittle solids to extremely extensible gels.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Lu, T., Zhang, G., &amp; Suo, Z. Solvent history as a design principle for decoupling stiffness and toughness in crosslinked elastomers.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, &amp; Suo, Z. On the deformable-to-rigid crossover in dielectric breakdown: When can mechanical deformation be ignored?
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong>, Hou, Z., Lu, T., Wang, Z., &amp; Suo, Z. Strain-rate strengthening in a near-critical elastomeric phase for impact energy absorption.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong> †, Kai, L. †, et al., &amp; Suo, Z. Electrical breakdown toughness: A new material constant for defect tolerance in insulators.
-            </div>
-            <div class="publication-item" style="font-size: 0.9rem; color: #4a4a4a;">
-                <strong>Luo, Z.</strong> †, Zhang, Y. †, Lu, T., &amp; Suo, Z. Mechanically inspired toughening of electrical insulators via self-assembly.
-            </div>
-            <div style="margin-top: 0.3rem; font-style: italic; color: #5f5f5f; font-size: 0.85rem;">
-                † equal contribution
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>'''
-    
-    return html
 
 def build_all():
-    """构建所有内容"""
-    
-    all_blog_items = []
-    all_notes_items = []
-    all_projects_items = []
-    
-    # 1. 处理 blog
-    blog_dir = Path('posts/blog')
-    if blog_dir.exists():
-        md_files = list(blog_dir.glob('*.md'))
-        for md_path in md_files:
-            print(f'🔄 正在转换: posts/blog/{md_path.name}')
-            html_content = convert_md_to_html(md_path, back_to_root='../../')
-            html_path = md_path.with_suffix('.html')
-            with open(html_path, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            print(f'   ✅ 已生成: {html_path.name}')
-            
-            with open(md_path, 'r', encoding='utf-8') as f:
-                raw = f.read()
-            fm, _ = extract_front_matter(raw)
-            all_blog_items.append({
-                'title': fm.get('title', '未命名'),
-                'date': fm.get('date', ''),
-                'excerpt': fm.get('excerpt', ''),
-                'link': f'posts/blog/{md_path.stem}.html'
-            })
-    else:
-        print('⚠️ posts/blog/ 不存在')
-    
-    # 2. 处理 notes
-    notes_dir = Path('posts/notes')
-    if notes_dir.exists():
-        md_files = list(notes_dir.glob('*.md'))
-        for md_path in md_files:
-            print(f'🔄 正在转换: posts/notes/{md_path.name}')
-            html_content = convert_md_to_html(md_path, back_to_root='../../')
-            html_path = md_path.with_suffix('.html')
-            with open(html_path, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            print(f'   ✅ 已生成: {html_path.name}')
-            
-            with open(md_path, 'r', encoding='utf-8') as f:
-                raw = f.read()
-            fm, _ = extract_front_matter(raw)
-            all_notes_items.append({
-                'title': fm.get('title', '未命名'),
-                'date': fm.get('date', ''),
-                'excerpt': fm.get('excerpt', ''),
-                'link': f'posts/notes/{md_path.stem}.html'
-            })
-    else:
-        print('⚠️ posts/notes/ 不存在')
-    
-    # 3. 处理 projects
-    projects_dir = Path('posts/projects')
-    if projects_dir.exists():
-        md_files = list(projects_dir.glob('*.md'))
-        for md_path in md_files:
-            print(f'🔄 正在转换: posts/projects/{md_path.name}')
-            html_content = convert_md_to_html(md_path, back_to_root='../../')
-            html_path = md_path.with_suffix('.html')
-            with open(html_path, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            print(f'   ✅ 已生成: {html_path.name}')
-            
-            with open(md_path, 'r', encoding='utf-8') as f:
-                raw = f.read()
-            fm, _ = extract_front_matter(raw)
-            all_projects_items.append({
-                'title': fm.get('title', '未命名'),
-                'date': fm.get('date', ''),
-                'excerpt': fm.get('excerpt', ''),
-                'tags': fm.get('tags', ''),
-                'link': f'posts/projects/{md_path.stem}.html'
-            })
-    else:
-        print('⚠️ posts/projects/ 不存在')
-    
-    # 4. 生成列表页
-    print('\n📋 生成列表页...')
-    
-    blog_html = generate_list_page(all_blog_items, 'blog', 'Blog', 'Deep dives into research, methods, and ideas.')
-    with open('blog.html', 'w', encoding='utf-8') as f:
-        f.write(blog_html)
-    print('   ✅ 已生成: blog.html')
-    
-    notes_html = generate_list_page(all_notes_items, 'notes', 'Notes', 'Short thoughts, daily discoveries, and research snippets.')
-    with open('notes.html', 'w', encoding='utf-8') as f:
-        f.write(notes_html)
-    print('   ✅ 已生成: notes.html')
-    
-    projects_html = generate_list_page(all_projects_items, 'projects', 'Research Projects', 'Current and past research, from soft matter to neurodynamics.')
-    with open('projects.html', 'w', encoding='utf-8') as f:
-        f.write(projects_html)
-    print('   ✅ 已生成: projects.html')
-    
-    # 5. 生成 index.html（首页）
-    print('\n📋 生成首页...')
-    
-    all_posts = all_blog_items + all_notes_items
-    all_posts_sorted = sorted(all_posts, key=lambda x: x.get('date', ''), reverse=True)
-    latest_4 = all_posts_sorted[:4]
-    
-    index_html = generate_index_page(latest_4)
-    with open('index.html', 'w', encoding='utf-8') as f:
-        f.write(index_html)
-    print('   ✅ 已生成: index.html')
-    
-    print('\n🎉 全部转换完成！')
+    collections = {}
+    for kind in ('projects', 'blog', 'notes'):
+        items = [build_post(path, kind) for path in sorted((ROOT / 'posts' / kind).glob('*.md'))]
+        collections[kind] = [item for item in items if item]
+    projects = sorted(collections['projects'], key=lambda i: (int(i.get('order', '99')), i['title']))
+    blogs = sorted(collections['blog'], key=lambda i: i.get('date', ''), reverse=True)
+    notes = sorted(collections['notes'], key=lambda i: i.get('date', ''), reverse=True)
+
+    meta, intro = page('research')
+    _, publications = page('publications')
+    content = f'<div class="page-title"><p class="eyebrow">{escape(meta["eyebrow"])}</p>{intro}</div>'
+    content += ''.join(project_card(i) for i in projects)
+    content += f'<section class="prose publications">{publications}</section>'
+    html = shell(meta['title'], content, 'projects.html', description=meta['description'])
+    write('projects.html', html)
+    write('research.html', html)
+
+    meta, body = page('interests')
+    content = f'<div class="interest-intro"><p class="eyebrow">{escape(meta["eyebrow"])}</p></div><article class="prose reading interests">{body}</article>'
+    write('interests.html', shell(meta['title'], content, 'interests.html', description=meta['description']))
+
+    content = '<div class="page-title"><p class="eyebrow">Reading and research</p><h1>Writing</h1><p class="intro">Research explanations, reading notes and questions that grow out of them.</p></div>' + listing(blogs)
+    content += '<p class="back-link">For small discoveries and everyday observations, visit <a href="notes.html">Personal notes</a>.</p>'
+    write('blog.html', shell('Writing', content, 'blog.html', description='Research writing and reading notes by Zheng Luo.'))
+    content = '<div class="page-title"><p class="eyebrow">A personal notebook</p><h1>Notes</h1><p class="intro">Small discoveries, sketches and questions from everyday life. These entries preserve thoughts as they developed; they are not presented as research findings.</p></div>' + listing(notes)
+    write('notes.html', shell('Notes', content, 'notes.html', description='Personal observations, sketches and open questions by Zheng Luo.'))
+
+    meta, body = page('about')
+    body = body.replace('<p>', '<p class="lead">', 1)
+    hero = f'''<section class="hero"><div class="hero-layout"><div><p class="eyebrow">{escape(meta['eyebrow'])}</p>{body}</div>
+<img class="portrait" src="assets/images/MyPhoto.jpg" alt="Zheng Luo"></div>
+<div class="actions"><a class="button" href="interests.html">Research interests</a><a href="projects.html">Explore my research</a><a href="mailto:{EMAIL}">Get in touch</a></div></section>'''
+    selected = '<section aria-labelledby="selected-heading"><div class="section-title"><h2 id="selected-heading">Selected research</h2><a class="textlink" href="projects.html">All projects</a></div>'
+    if projects:
+        first = projects[0]
+        selected += f'''<article class="feature"><figure class="feature-media"><img src="{escape(first.get('image', ''), quote=True)}" alt="{escape(first.get('image_alt', first['title']), quote=True)}"><figcaption>Electrostatic simulation around a prescribed conducting tip.</figcaption></figure><div class="feature-copy"><p class="eyebrow">Theory, computation and experiment</p><h2>{escape(first['title'])}</h2><p>{escape(first.get('excerpt', ''))}</p><a class="textlink" href="{first['link']}">Read the research story</a></div></article>'''
+    by_slug = {Path(i['link']).stem: i for i in projects}
+    selected += '<div class="research-pair">' + ''.join(project_card(by_slug[slug], True) for slug in ('neuroeff', 'polymer-network-phase-diagram') if slug in by_slug) + '</div></section>'
+    writing_links = ''.join(f'<li><a href="{i["link"]}">{escape(i["title"])}</a></li>' for i in blogs[:2])
+    below = f'''<section class="below"><div><h2>Two connected ambitions</h2><p>Understanding how brains compute, and testing whether those insights can help artificial systems learn and adapt more effectively.</p><p><a href="interests.html">Questions and approaches I want to pursue</a></p></div><div><h2>Writing and small discoveries</h2><ul>{writing_links}</ul><p><a href="notes.html">Personal notes, sketches and everyday observations</a></p></div></section>'''
+    write('index.html', shell('About', hero + selected + below, 'index.html', description=meta['description']))
+    write('electrical-failure.html', shell('Electrical failure', '<div class="page-title"><h1>Electrical failure and defect tolerance</h1><p><a href="posts/projects/dielectric-breakdown-theory.html">Read the full research project</a></p></div>', 'projects.html'))
+    print(f'Built home, research, interests, writing and notes; {len(projects)} projects, {len(blogs)} articles, {len(notes)} notes.')
+
 
 if __name__ == '__main__':
     build_all()

@@ -1,61 +1,30 @@
 ---
-title: Human Self-Consciousness and Few-Shot Learning
+title: When One Observation Changes an Expectation
 date: 2026-08-12
-excerpt: For humans, one sample that violates expectations can change cognition — provided there is sufficient self-consciousness. What about AI?
-tags: Self-Consciousness · Few-Shot Learning · Meta-Learning · AI · PINN
+updated: 2026-11-24
+excerpt: A short video of a wall being cleaned made me notice—and revise—an assumption I had never explicitly examined.
+tags: Learning · Belief revision · Personal observation
 ---
 
-# Human Self-Consciousness and Few-Shot Learning
+# When One Observation Changes an Expectation
 
----
+I used to assume that vertical walls would not become very dirty. Then I watched a short video of a wall being pressure-washed. The difference between the cleaned and uncleaned areas was striking, and my assumption changed almost immediately.
 
-For humans, a single piece of information that violates expectations can change cognition — provided there is sufficient self-consciousness. One must be aware that what they have seen does not align with their prior expectations.
+What interests me is the experience of noticing a mismatch between what I expected and what I saw. How much prior experience made that apparently sudden revision possible? What exactly changed: a belief about this wall, about vertical surfaces, or about how dirt accumulates?
 
-For AI, the field of few-shot learning probably has developed similar approaches? I'm curious. Wondering if it resembles how PINN directly injects physical concepts into neural networks.
+This made me curious about rapid learning in artificial systems, including few-shot learning and meta-learning. My initial notes drew much stronger analogies between these ideas, working memory and self-consciousness, partly prompted by an AI-generated explanation. Those analogies need separate evidence. This observation alone does not identify a learning mechanism or establish that conscious self-monitoring is required.
 
----
-from DeepSeek:
-**AI's "one-shot cognitive shift" is called meta-learning.** The core idea is "learning to learn." Take the MAML algorithm, for example — it doesn't memorize data directly; instead, it trains an extremely sensitive initial model. When you give it a new sample (like a face), it only needs one gradient descent step to dramatically adjust its cognition. This mirrors human working memory — fast updating but prone to forgetting — essentially a rapid drift in parameter space.
+For now, I want to keep the everyday question: **what lets one new observation reorganise something we thought we already knew?**
 
-**Closer to your description of "self-awareness" is Test-Time Training.** When encountering an unexpected sample during inference, the model temporarily fine-tunes itself, dynamically updating its internal representations. This is more "self-doubting" than meta-learning, because it acknowledges "my previous cognition might be wrong." However, the cost is significant computational overhead.
+[A related reading note on structured priors and learning](../blog/2026-08-17-Griffith-nc2025.html).
 
----
+## 一次观察改变了预期
 
-**PINN.** After asking AI, I understand its principle to be: constraining the solution space so that it necessarily satisfies the physics? That is effectively cutting off a large portion of impossible solutions under the given physical laws?
+我原来隐约觉得，垂直的墙面应该不会特别脏。直到看见一个高压水枪清洗墙面的视频，洗过和没洗过的部分差别那么大，这个未经检验的想法几乎立刻就改变了。
 
-Whether hard constraints or soft constraints.
+令我感兴趣的是，自己能察觉“原来想的”和“刚刚看到的”不一致。看起来只用了一次观察的修正，背后依赖多少已有经验？改变的是对这面墙的判断、对垂直表面的判断，还是对污垢积累方式的理解？
 
-Self-consciousness — knowing that what you see does not match your prior expectations.
+这让我想到人工系统的快速学习、少样本学习和元学习。最初的记录受到一段 AI 解释的影响，把它们与工作记忆、自我意识联系得过于直接了。这里需要各自独立的证据；一次生活观察还不能确定学习机制，也不能说明有意识的自我监测是必要条件。
 
----
+我仍然想保留这个问题：**是什么让一条新信息，重新组织了我们以为自己已经知道的东西？**
 
-— THE END —
-
----
-
-# 人的自我意识与少样本学习
-
----
-
-对人来说，不符合预期的话，只要看一个样本就能更改自己的认知。当然这需要比较高的self-consciousness。自己知道自己看到的什么不符合自己原有的预期。
-
-对AI来说，少样本学习的领域发展大概有发展类似的领域吧？蛮好奇的。似乎不类似于PINN直接给神经网络灌输物理概念。
-
----
-来自DeepSeek:
-
-**AI的“一眼改认知”叫元学习（Meta-Learning）。** 核心是“学会如何学习”，比如MAML算法，它不直接记住数据，而是训练出一个极度敏感的初始模型。当你给它一个新样本（比如那张脸），它只需一步梯度下降就能剧烈调整认知。这模拟了人的工作记忆——快速刷新，但容易遗忘，本质是参数空间的快速漂移。
-
-**更接近你“自我意识”描述的是测试时训练（Test-Time Training）。** 推理时遇到不符合预期的样本，模型会临时自我微调，动态更新内部表征。这比元学习更“自我怀疑”，因为它承认“我之前的认知可能错了”，但代价是计算开销极大。
-
----
-
-**PINN。** 问AI之后我理解这个的原理是：通过约束使得解空间必然满足物理？也就是砍掉了一大部分该物理定律下不可能的解空间？
-
-不论是硬约束还是软约束。
-
-self-consciousness——自己知道自己看到的什么不符合自己原有的预期。
-
----
-
-— 完 —

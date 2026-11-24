@@ -1,79 +1,23 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solvent History as a Design Principle for Crosslinked Elastomers · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="../../site.webmanifest">
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\(', '\)']],
-                displayMath: [['$$', '$$'], ['\[', '\]']]
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-</head>
-<body>
-<div class="container">
-    
-    <div class="header">
-        <div class="site-title"><a href="../../index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="../../index.html">About</a>
-            <a href="../../blog.html">Blog</a>
-            <a href="../../notes.html">Notes</a>
-            <a href="../../projects.html">Projects</a>
-        </div>
-    </div>
-
-    <div class="post-content" style="margin-top: 1rem;">
-        <h1 id="solvent-history-as-a-design-principle-for-crosslinked-elastomers">Solvent History as a Design Principle for Crosslinked Elastomers</h1>
-<h2 id="motivation">Motivation</h2>
-<p>Conventionally, stiffness and toughness of a polymer network are coupled: making the network
-stiffer often makes it more brittle. Can the <em>history</em> of a solvent, rather than its final
-composition, decouple these two properties?</p>
-<h2 id="the-solvent-history-strategy">The Solvent-History Strategy</h2>
-<p>A model network is first swollen to a prescribed degree by a solvent, crosslinked, and then
-the solvent is selectively evaporated. The final properties depend on the <em>path</em> taken:</p>
-<p>$$
-\mathcal{P} = \mathcal{F}(c_{\text{max}}, \dot{c}, T)
-$$</p>
-<p>where $c_{\text{max}}$ is the peak solvent concentration, $\dot{c}$ the evaporation rate,
-and $T$ the temperature.</p>
-<h2 id="decoupling-stiffness-and-toughness">Decoupling Stiffness and Toughness</h2>
-<p>The shear modulus $G$ scales with the crosslink density $\nu_x$ and the entanglement density
-$\nu_e$:</p>
-<p>$$
-G \approx k_B T \left( \nu_x + \alpha \, \nu_e \right)
-$$</p>
-<p>Because solvent evaporation redistributes entanglements without changing the crosslink
-density, we can soften the material (reduce $\nu_x$ contribution) while preserving its
-toughness (maintained through $\nu_e$). This independent control is captured by the map:</p>
-<p>$$
-(\nu_x, \nu_e) \xrightarrow{\text{solvent history}} (G, \Gamma)
-$$</p>
-<p>where $\Gamma$ is the fracture energy.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Solvent history offers a simple, scalable route to independently tune stiffness and
-toughness in crosslinked elastomers — a principle that may extend to other soft materials.</p>
-    </div>
-
-    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
-        2026-07-25
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
-</div>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a Polymer Network Remembers About Its Preparation | Zheng (Rose) Luo</title><meta name="description" content="Comparing formation histories through tensile measurements and controlled computational interventions.">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/content.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="../../index.html">Zheng (Rose) Luo</a><nav aria-label="Main navigation"><a href="../../index.html">About</a><a href="../../projects.html">Research</a><a href="../../interests.html">Interests</a><a href="../../blog.html" aria-current="page">Writing</a><a href="../../notes.html">Notes</a></nav></header>
+<main id="main"><div class="page-title"><p class="eyebrow">Research writing</p><h1>What a Polymer Network Remembers About Its Preparation</h1>
+<p class="intro">Comparing formation histories through tensile measurements and controlled computational interventions.</p><p class="meta">2026-07-25 · Updated 2026-11-24</p></div><article class="prose reading"><p>Two polymer networks can reach a similar final composition through different preparation routes. Their mechanical responses need not be the same. My solvent-history study examines how conditions during network formation affect the material after the preparation solvent is removed.</p>
+<h2 id="separate-the-mechanical-questions">Separate the mechanical questions</h2>
+<p>In part of the formulation range examined, adding solvent during preparation produces substantial softening while peak tensile stresses remain of comparable magnitude. Stronger dilution and other formulations can instead reduce load-bearing capacity. The useful processing range therefore has to be measured.</p>
+<p>Stiffness, peak tensile stress, tensile work and resistance to crack growth describe different aspects of a specimen's response. Increasing work under an unnotched tensile curve does not by itself establish greater fracture resistance. Precracked measurements require their own interpretation, including identification of the relevant crack-growth event.</p>
+<h2 id="use-simulations-to-isolate-a-proposed-explanation">Use simulations to isolate a proposed explanation</h2>
+<p>My bead–spring simulations compare dilution before and after crosslinking at a common final density. Some comparisons preserve the covalent network graph, helping separate preparation and relaxation history from changes in connectivity. Other comparisons permit the realised graph to differ and must be interpreted accordingly.</p>
+<p>A second intervention shortens wholly free chains while retaining the connected network. The shortened chains move more readily, but the bulk-stress change does not have a consistent sign across the sampled realisations. Faster local motion alone is therefore insufficient to explain the experimental softening.</p>
+<p>These interventions test narrower explanations within a simplified model. They do not reproduce all of the preparation chemistry, and the model's nonbreaking bonds do not predict ultimate strength or crack resistance.</p>
+<h2 id="what-remains-to-be-distinguished">What remains to be distinguished</h2>
+<p>Holding nominal recipe ratios fixed does not establish identical conversion or effective crosslink density. Changes in connectivity, chain conformation, relaxable constraints and residual solvent can affect the interpretation.</p>
+<p>The next checks connect repeatable mechanical measurements with characterisation of the prepared networks. The scientific aim is to identify which preparation changes account for which parts of the response, and where a useful softening window ends.</p>
+<p><a href="../projects/polymer-network-phase-diagram.html">Read the polymer-network project</a>.</p></article><p class="back-link"><a href="../../blog.html">All writing</a></p></main>
+<footer><span>Zheng (Rose) Luo</span><a href="mailto:rose.zheng.luo@gmail.com">rose.zheng.luo@gmail.com</a><a href="../../notes.html">Personal notes</a></footer>
+</div></body></html>

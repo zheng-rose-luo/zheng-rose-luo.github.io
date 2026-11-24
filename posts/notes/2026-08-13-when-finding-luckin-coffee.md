@@ -1,37 +1,24 @@
 ---
-title: Human Few-Shot Learning — Example 2
+title: The Moment a Store Comes into View
 date: 2026-08-13
-excerpt: Another example of human few-shot learning. While looking for a store on the street, eyes constantly searching — but the moment you see it, you know exactly where it is.
-tags: Few-Shot Learning · Human Cognition · Perception · Visual Search
+updated: 2026-11-24
+excerpt: Looking for a coffee shop made me notice the sudden transition from searching to recognising where something is.
+tags: Visual search · Recognition · Personal observation
 ---
 
-# Human Few-Shot Learning — Example 2
+# The Moment a Store Comes into View
 
----
+While riding in a friend's car, I was looking for a Luckin Coffee. My eyes kept searching along the street, but the moment I caught sight of the shop, I knew where it was.
 
-Another example of human few-shot learning.
+I first wrote this down as an example of few-shot learning. On reflection, the observation is more directly about visual search and recognition: I already knew what I was looking for. It does not tell me whether a new representation was learned at that moment.
 
-While looking for a store on the street, eyes constantly wandering — but the moment you catch a glimpse of it, you know exactly where it is.
+The suddenness still interests me. What changes between searching without finding and immediately knowing where the target is?
 
-Thought of this while looking for a Luckin Coffee in a friend's car.
+## 看见店铺的那一刻
 
----
+坐朋友的车找瑞幸咖啡时，眼睛一直沿街寻找。但只要看见一眼，就知道那家店在哪里了。
 
-— THE END —
+我最初把它记成“少样本学习”的例子。再想想，这次观察更直接涉及视觉搜索和识别：我已经知道自己要找什么。它还不能告诉我，在看见店铺的瞬间是否学到了新的表征。
 
----
+那种突如其来的确定感仍然很有意思。从“还在找”到“知道在哪里”，中间发生了什么？
 
-# 人的少样本学习举例-2
-
----
-
-关于人的少样本学习，今天又发现一个例子。
-
-在路上找一家店，眼睛不断游走，但只要看到一眼，就完全知道这家店在哪里了。
-
-在朋友车上找瑞幸咖啡有感。
-
-
----
-
-— 完 —

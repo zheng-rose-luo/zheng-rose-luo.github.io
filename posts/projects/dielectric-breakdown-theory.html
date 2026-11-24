@@ -1,62 +1,90 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Continuum Theory of Dielectric Breakdown · Zheng (Rose) Luo</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="../../site.webmanifest">
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\(', '\)']],
-                displayMath: [['$$', '$$'], ['\[', '\]']]
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-</head>
-<body>
-<div class="container">
-    
-    <div class="header">
-        <div class="site-title"><a href="../../index.html">Zheng (Rose) Luo</a></div>
-        <div class="nav">
-            <a href="../../index.html">About</a>
-            <a href="../../blog.html">Blog</a>
-            <a href="../../notes.html">Notes</a>
-            <a href="../../projects.html">Projects</a>
-        </div>
-    </div>
-
-    <div class="post-content" style="margin-top: 1rem;">
-        <h1 id="continuum-theory-of-dielectric-breakdown">Continuum Theory of Dielectric Breakdown</h1>
-<h2 id="overview">Overview</h2>
-<p>Recast dielectric breakdown as a defect tolerance problem by importing concepts from fracture mechanics.</p>
-<h2 id="key-achievements">Key Achievements</h2>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electrical Failure and Defect Tolerance | Zheng (Rose) Luo</title><meta name="description" content="Connecting energetic theories of electrical failure with controlled defects, reproducible fabrication and measurements of material response.">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/content.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<header><a class="brand" href="../../index.html">Zheng (Rose) Luo</a><nav aria-label="Main navigation"><a href="../../index.html">About</a><a href="../../projects.html" aria-current="page">Research</a><a href="../../interests.html">Interests</a><a href="../../blog.html">Writing</a><a href="../../notes.html">Notes</a></nav></header>
+<main id="main"><div class="page-title"><p class="eyebrow">Research project</p><h1>Electrical Failure and Defect Tolerance</h1>
+<p class="intro">Connecting energetic theories of electrical failure with controlled defects, reproducible fabrication and measurements of material response.</p><p class="meta">2026-08-21 · Updated 2026-11-24 · Doctoral research · Working manuscripts</p></div><div class="article-layout"><aside class="page-toc" aria-label="On this page"><p class="eyebrow">On this page</p><div class="toc">
 <ul>
-<li>Derived the electrical analog of the J-integral</li>
-<li>Simulated breakdown path evolution with phase-field PDE models in COMSOL</li>
-<li>Engineered 6 classes of defect-embedded specimens across 2D and 3D geometries</li>
-<li>Established electrical breakdown toughness as a new material constant</li>
+<li><a href="#what-drives-a-conducting-channel-to-grow">What drives a conducting channel to grow?</a></li>
+<li><a href="#an-energetic-description">An energetic description</a></li>
+<li><a href="#making-the-question-experimentally-accessible">Making the question experimentally accessible</a></li>
+<li><a href="#can-material-design-change-defect-tolerance">Can material design change defect tolerance?</a></li>
+<li><a href="#three-connected-studies">Three connected studies</a></li>
+<li><a href="#my-contribution">My contribution</a></li>
+<li><a href="#the-approach-i-want-to-bring-to-neuroscience">The approach I want to bring to neuroscience</a></li>
 </ul>
-<h2 id="validation">Validation</h2>
-<p>Weibull analysis shows that controlled artificial defects suppress the scatter caused by natural flaws.</p>
-    </div>
-
-    <div style="margin-top: 2rem; color: #6f6f6f; font-family: Arial, sans-serif; font-size: 0.85rem; border-top: 1px solid #f0ede8; padding-top: 1rem;">
-        2026-08-21
-    </div>
-
-    <div class="footer-note">
-        Zheng (Rose) Luo · <a href="mailto:rose.zheng.luo@gmail.com" style="color: #a09a92; text-decoration: none;">rose.zheng.luo@gmail.com</a>
-    </div>
 </div>
-</body>
-</html>
+</aside><article class="prose"><p>My doctoral research with Professor Zhigang Suo and collaborators connects a theoretical question about channel growth with the practical challenge of making controlled defects. Three related studies address the driving force for growth, its experimental measurement, and the effects of material design.</p>
+<h2 id="what-drives-a-conducting-channel-to-grow">What drives a conducting channel to grow?</h2>
+<p>Electrical failure often starts near defects, where the electric field concentrates. Predicting the growth of a conducting channel requires a connection between that local field, the energy of the system and the response of the material.</p>
+<p>I approached this as a defect-tolerance problem, drawing on fracture mechanics to ask which quantities can be calculated, measured and compared across specimen geometries.</p>
+<blockquote>
+<p>A useful theory must tell us what to measure, and a useful experiment must distinguish between possible explanations.</p>
+</blockquote>
+<h2 id="an-energetic-description">An energetic description</h2>
+<p>I derived an electrical analogue of the J-integral and investigated how channel geometry and mechanical deformation affect the calculated driving force. Numerical comparisons between energy changes and contour integrals provide checks on the formulation. I also implemented phase-field models in COMSOL to explore breakdown-path evolution.</p>
+<figure>
+  <a href="../../assets/images/research/electrical-concept.png" aria-label="Open the channel geometry figure at full size"><img src="../../assets/images/research/electrical-concept.png" alt="Channel geometry and the specified advance of the conducting head"></a>
+  <figcaption>Geometry and growth prescription from the current theoretical manuscript. The definition of channel advance is part of the model. The deformable case follows a selected equilibrium branch; stability requires separate assessment.</figcaption>
+</figure>
+
+<p>A central question is whether an increasingly sharp tip necessarily implies a larger overall growth-driving force. Another is when mechanical deformation materially changes the electrical calculation. These questions require specifying both the system's energy and the manner in which the conducting head advances.</p>
+<p>The current analysis uses idealised conducting channels and specified dielectric constitutive assumptions. Comparisons depend on geometry, loading and the prescribed manner of advance. A calculated driving force does not by itself establish a geometry-independent material resistance to growth.</p>
+<h2 id="making-the-question-experimentally-accessible">Making the question experimentally accessible</h2>
+<p>My first attempt used fine needles inserted manually into thin specimens. I led a small undergraduate team, but the approach did not provide the geometric precision needed for reliable measurements.</p>
+<p>I returned to the problem after examining what earlier fabrication methods could and could not establish. I contacted manufacturers and developed collaborations involving femtosecond laser processing, electrical engineering and atomic layer deposition. The aim was to make controlled specimens in batches so that variability could be studied systematically.</p>
+<p>Improving fabrication was part of the scientific problem: without control over geometry and preparation, a comparison between specimens could not cleanly test the model.</p>
+<p>Current work asks how a resistance inferred from one condition performs when tested against other geometries and loading conditions. Cross-condition consistency remains a question to examine.</p>
+<h2 id="can-material-design-change-defect-tolerance">Can material design change defect tolerance?</h2>
+<p>A related study compares materials under conventional breakdown tests and tests containing a deliberately introduced conducting defect. These configurations ask different questions about performance.</p>
+<figure>
+  <a href="../../assets/images/research/electrical-comparison.png" aria-label="Open the defect comparison figure at full size"><img src="../../assets/images/research/electrical-comparison.png" alt="Field simulation, conducting-tip and straight-edge chip breakdown measurements, and an energy mapping"></a>
+  <figcaption>Field simulation and measured breakdown voltages for conducting-tip and straight-edge chips in the Fvc–AS material series, followed by a permittivity-normalized energy mapping for the specified geometry. F100–F80 label the material formulations. The energy mapping uses the same voltage measurements; it is not an independent test of the proposed mechanism.</figcaption>
+</figure>
+
+<p>Under these test conditions, the formulation-dependent change in breakdown voltage was larger for tip-containing chips than for straight-edge controls. This motivates closer examination of how microstructure changes the response to an artificial defect. Establishing the mechanism requires further controls connecting structural observations, electrical properties and breakdown behaviour.</p>
+<h2 id="three-connected-studies">Three connected studies</h2>
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Main question</th>
+<th>Current stage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Theoretical driving forces</td>
+<td>How should the electrical driving force for conducting-channel growth be defined in rigid and deformable dielectrics?</td>
+<td>Full discussion draft with theoretical and numerical analysis</td>
+</tr>
+<tr>
+<td>Controlled-defect measurement</td>
+<td>How consistently can an inferred resistance predict measurements across geometries and conditions?</td>
+<td>Ongoing experimental validation</td>
+</tr>
+<tr>
+<td>Materials and microstructure</td>
+<td>How does material design change the response to an artificial conducting defect?</td>
+<td>Working manuscript with further checks in progress</td>
+</tr>
+</tbody>
+</table>
+<h2 id="my-contribution">My contribution</h2>
+<ul>
+<li>Developing the theoretical formulation and numerical models.</li>
+<li>Turning model requirements into specimen geometries and measurement choices.</li>
+<li>Leading early fabrication trials and revising the approach when they failed.</li>
+<li>Building collaborations around fabrication and characterisation capabilities.</li>
+<li>Interpreting results in light of assumptions, variability and remaining tests.</li>
+</ul>
+<p>Specialist collaborators contribute fabrication and characterisation expertise. The research depends on making the interfaces between theory, specimen preparation and measurement explicit.</p>
+<h2 id="the-approach-i-want-to-bring-to-neuroscience">The approach I want to bring to neuroscience</h2>
+<p>This project has taught me to move between models, controlled changes and measurable consequences. I want to develop that approach for understanding the brain: observing how neural systems change with experience, testing candidate explanations, and using neural and behavioural evidence to refine models of learning and cognition. I am also interested in testing whether the resulting computational principles can help artificial systems learn and adapt more effectively.</p>
+<p><a href="../../interests.html">Read about my research interests</a>.</p></article></div><p class="back-link"><a href="../../projects.html">All research projects</a></p></main>
+<footer><span>Zheng (Rose) Luo</span><a href="mailto:rose.zheng.luo@gmail.com">rose.zheng.luo@gmail.com</a><a href="../../notes.html">Personal notes</a></footer>
+</div></body></html>

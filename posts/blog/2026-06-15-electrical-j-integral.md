@@ -1,37 +1,34 @@
 ---
-title: Electrical J-Integral & Phase-Field Simulation
+title: Checking an Electrical Growth-Force Calculation
 date: 2026-06-15
-excerpt: Rigorous derivation and COMSOL verification of path-independence.
+updated: 2026-11-24
+excerpt: How energy changes and integral calculations provide complementary checks on a model of conducting-channel growth.
+tags: Electrical failure · Numerical modelling · Research methods
 ---
 
-# Electrical J-Integral & Phase-Field Simulation
+# Checking an Electrical Growth-Force Calculation
 
-## Background
+A conducting channel concentrates the electric field near its tip. A sharper tip can produce a larger local field, but that observation alone does not specify the energy available for the channel to grow. The growth-driving force also depends on the specimen, loading and prescribed change in channel geometry.
 
-The J-integral is a fundamental concept in fracture mechanics. Its electrical analog can be derived from Maxwell's equations.
+This distinction is central to my theoretical work on electrical failure.
 
-## Derivation
+## Define the change before calculating its cost
 
-Starting from the energy-momentum tensor:
+To calculate a growth-driving force, I first need to specify what advances. Extending a channel, moving its conducting head and changing its tip shape are different geometrical operations. A meaningful comparison between calculations must use the same prescribed change and electrical boundary conditions.
 
-$$T_{ij} = W_e \delta_{ij} - E_i D_j$$
+In my current formulation, energy changes, boundary integrals and domain integrals provide different ways to calculate the force associated with a specified advance. Their agreement supplies a numerical consistency check. The assumptions under which an integral is independent of the chosen path are part of the derivation.
 
-The electrical J-integral is:
+## What the numerical checks establish
 
-$$J_e = \int_{\Gamma} (W_e \, dy - \mathbf{T} \cdot \frac{\partial \mathbf{D}}{\partial x} \, ds)$$
+I compare the formulations in two- and three-dimensional geometries. Relevant checks include mesh refinement, the choice of integration region and the increment used to approximate an energy change. Agreement is informative only when these calculations represent the same physical boundary-value problem.
 
-## Phase-Field Model
+The current analysis also examines when mechanical deformation changes the electrical growth force. The comparison follows a selected equilibrium branch; assessing its stability is a separate question.
 
-The phase-field evolution equation:
+## Connecting the calculation to failure
 
-$$\tau \frac{\partial \phi}{\partial t} = 2(1-\phi) \cdot \text{drive} - \text{energy} \cdot \phi$$
+I have also implemented phase-field models of breakdown-path evolution in COMSOL. A path-evolution model and an energetic calculation address connected questions, but agreement within a model is only one stage of validation.
 
-where $\phi$ is the phase-field order parameter.
+The experimental task is to determine whether a proposed resistance criterion predicts measured breakdown across controlled geometries and conditions. This requires reproducible specimens and a clear connection between the quantity calculated and the event measured.
 
-## COMSOL Implementation
+[Read the electrical-failure project](../projects/dielectric-breakdown-theory.html).
 
-We implemented the phase-field model in COMSOL Multiphysics using the PDE interface. Path-independence was verified for multiple integration contours.
-
-## Results
-
-The simulation results show that the electrical J-integral is indeed path-independent, validating our theoretical framework.

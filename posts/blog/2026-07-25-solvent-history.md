@@ -1,49 +1,34 @@
 ---
-title: Solvent History as a Design Principle for Crosslinked Elastomers
+title: What a Polymer Network Remembers About Its Preparation
 date: 2026-07-25
-excerpt: Selective evaporation of solvents to tune entanglements and achieve softening without sacrificing strength.
+updated: 2026-11-24
+excerpt: Comparing formation histories through tensile measurements and controlled computational interventions.
+tags: Polymer networks · Preparation history · Molecular simulation
 ---
 
-# Solvent History as a Design Principle for Crosslinked Elastomers
+# What a Polymer Network Remembers About Its Preparation
 
-## Motivation
+Two polymer networks can reach a similar final composition through different preparation routes. Their mechanical responses need not be the same. My solvent-history study examines how conditions during network formation affect the material after the preparation solvent is removed.
 
-Conventionally, stiffness and toughness of a polymer network are coupled: making the network
-stiffer often makes it more brittle. Can the *history* of a solvent, rather than its final
-composition, decouple these two properties?
+## Separate the mechanical questions
 
-## The Solvent-History Strategy
+In part of the formulation range examined, adding solvent during preparation produces substantial softening while peak tensile stresses remain of comparable magnitude. Stronger dilution and other formulations can instead reduce load-bearing capacity. The useful processing range therefore has to be measured.
 
-A model network is first swollen to a prescribed degree by a solvent, crosslinked, and then
-the solvent is selectively evaporated. The final properties depend on the *path* taken:
+Stiffness, peak tensile stress, tensile work and resistance to crack growth describe different aspects of a specimen's response. Increasing work under an unnotched tensile curve does not by itself establish greater fracture resistance. Precracked measurements require their own interpretation, including identification of the relevant crack-growth event.
 
-$$
-\mathcal{P} = \mathcal{F}(c_{\text{max}}, \dot{c}, T)
-$$
+## Use simulations to isolate a proposed explanation
 
-where $c_{\text{max}}$ is the peak solvent concentration, $\dot{c}$ the evaporation rate,
-and $T$ the temperature.
+My bead–spring simulations compare dilution before and after crosslinking at a common final density. Some comparisons preserve the covalent network graph, helping separate preparation and relaxation history from changes in connectivity. Other comparisons permit the realised graph to differ and must be interpreted accordingly.
 
-## Decoupling Stiffness and Toughness
+A second intervention shortens wholly free chains while retaining the connected network. The shortened chains move more readily, but the bulk-stress change does not have a consistent sign across the sampled realisations. Faster local motion alone is therefore insufficient to explain the experimental softening.
 
-The shear modulus $G$ scales with the crosslink density $\nu_x$ and the entanglement density
-$\nu_e$:
+These interventions test narrower explanations within a simplified model. They do not reproduce all of the preparation chemistry, and the model's nonbreaking bonds do not predict ultimate strength or crack resistance.
 
-$$
-G \approx k_B T \left( \nu_x + \alpha \, \nu_e \right)
-$$
+## What remains to be distinguished
 
-Because solvent evaporation redistributes entanglements without changing the crosslink
-density, we can soften the material (reduce $\nu_x$ contribution) while preserving its
-toughness (maintained through $\nu_e$). This independent control is captured by the map:
+Holding nominal recipe ratios fixed does not establish identical conversion or effective crosslink density. Changes in connectivity, chain conformation, relaxable constraints and residual solvent can affect the interpretation.
 
-$$
-(\nu_x, \nu_e) \xrightarrow{\text{solvent history}} (G, \Gamma)
-$$
+The next checks connect repeatable mechanical measurements with characterisation of the prepared networks. The scientific aim is to identify which preparation changes account for which parts of the response, and where a useful softening window ends.
 
-where $\Gamma$ is the fracture energy.
+[Read the polymer-network project](../projects/polymer-network-phase-diagram.html).
 
-## Conclusion
-
-Solvent history offers a simple, scalable route to independently tune stiffness and
-toughness in crosslinked elastomers — a principle that may extend to other soft materials.
