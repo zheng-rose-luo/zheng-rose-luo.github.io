@@ -4,9 +4,21 @@ eyebrow: Future research
 description: Connecting computational explanations of brains with the design of more capable, adaptable and resource-efficient artificial intelligence.
 ---
 
-# Understanding brains, building adaptive intelligence
+# Research interests
 
-My long-term ambition connects two goals: understanding the computational principles of the brain, and using those insights to develop more capable artificial intelligence. Learning, flexible behaviour and neural dynamics are starting points for this work.
+I aim to connect explanations of neural computation with ideas that improve artificial learning.
+
+## Two goals, different tests
+
+These ambitions share a research approach while asking for different evidence. A biological explanation must account for observations and distinguish competing mechanisms. An engineering contribution must improve a defined capability against suitable baselines. I would begin with a focused question and develop the model and experimental comparison together.
+
+## A possible starting question
+
+How can a network preserve useful information despite interference, yet update it when the context changes?
+
+I would begin with a defined task and a small recurrent model, comparing candidate mechanisms of maintenance and updating. Behavioural or neural predictions would help distinguish the explanations. A separate engineering comparison would test whether the mechanism improves retention or context switching under matched resources.
+
+This is a starting point for discussion, to be refined around a lab's questions and experimental strengths.
 
 ## How does experience change computation?
 

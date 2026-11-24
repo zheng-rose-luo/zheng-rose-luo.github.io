@@ -53,5 +53,20 @@ img{max-width:100%}
 .writing-item h2 a{color:var(--ink);text-decoration:none}
 .writing-item p:not(.meta){color:var(--muted)}
 .back-link{margin:35px 0 0;padding-top:22px;border-top:1px solid var(--rule);font-size:.94rem}
+.file-label{font-size:.875rem;color:var(--muted)}
+.research-direction{margin:0 0 58px;padding:35px 0 0;border-top:2px solid var(--accent)}
+.direction-heading{max-width:780px;margin-bottom:30px}
+.direction-heading h2{font-size:clamp(2rem,3.8vw,2.8rem);margin-top:12px;max-width:720px}
+.goal-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+.goal-column{min-width:0;padding-right:24px}
+.goal-column+ .goal-column{border-left:1px solid var(--rule);padding-left:44px;padding-right:0}
+.goal-column h3{font:400 1.55rem/1.3 Georgia,'Times New Roman',serif;margin:12px 0 16px}
+.goal-column p:not(.eyebrow){font-size:1rem;line-height:1.75;color:var(--muted);margin-top:0}
+.shared-approach{padding:24px 27px;margin-top:31px;background:var(--soft);border-left:3px solid var(--accent)}
+.shared-approach p:first-child{font:400 1.35rem/1.4 Georgia,'Times New Roman',serif;color:var(--ink)}
+.shared-approach p:first-child strong{font-weight:400}
+.shared-approach p+p{margin-top:9px;font-size:1rem}
+.shared-approach .textlink{display:inline-block;margin-top:13px;font-size:1rem}
+@media(max-width:650px){.goal-columns{grid-template-columns:1fr;gap:26px}.goal-column{padding-right:0}.goal-column+ .goal-column{border-left:0;border-top:1px solid var(--rule);padding:24px 0 0}.research-direction{margin-bottom:42px;padding-top:27px}.shared-approach{padding:20px}.direction-heading{margin-bottom:26px}}
 @media(max-width:800px){.hero-layout{grid-template-columns:minmax(0,1fr) 110px;gap:25px}.hero-layout .portrait{width:110px;height:135px}.page-toc{position:static}.page-toc .toc>ul{display:flex;gap:8px 18px;flex-wrap:wrap}.page-toc a{margin:0}.page-toc .toc ul ul{display:none}.portfolio-row{grid-template-columns:175px minmax(0,1fr);gap:24px}}
 @media(max-width:540px){.hero-layout{display:block}.hero-layout .portrait{display:none}.hero{padding-top:36px}.portfolio-row{grid-template-columns:1fr}.portfolio-image img{max-width:270px;max-height:210px}.portfolio-image:empty{display:none}.page-title h1,.prose h1{font-size:2.35rem}.prose h2{font-size:1.6rem}.prose figure img{padding:6px}.interest-intro{margin-top:34px}.prose blockquote{margin-left:0;margin-right:0}.writing-item h2{font-size:1.4rem}.small-project{grid-template-columns:90px minmax(0,1fr);gap:16px}}

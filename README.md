@@ -7,6 +7,7 @@
 | 内容 | 可编辑文件 |
 | --- | --- |
 | 首页自我介绍 | `pages/about.md` |
+| 首页与 Interests 共享的研究双目标 | `pages/goals.md` |
 | 研究兴趣、未来方向、实验训练意愿 | `pages/interests.md` |
 | 研究总览开头 | `pages/research.md` |
 | 早期论文与会议成果 | `pages/publications.md` |
@@ -14,6 +15,7 @@
 | 研究长文与阅读笔记 | `posts/blog/*.md` |
 | 日常观察与短札 | `posts/notes/*.md` |
 | 研究图片 | `assets/images/research/` |
+| 网站当前公开的 CV | `assets/pdfs/Zheng_Luo_CV.pdf` |
 | 页面布局和公共导航 | `build.py` |
 | 样式 | `css/style.css`、`css/content.css` |
 
@@ -46,6 +48,23 @@ python -m http.server 8000 --bind 127.0.0.1
 浏览器访问 `http://127.0.0.1:8000`，结束时在终端按 Ctrl+C。
 
 确认页面后，仍按原来的方式检查差异、提交并推送。Markdown 和生成的 HTML 都要纳入提交。这个交付副本没有附带 `.git`，也没有自动推送到 GitHub；接入原目录时应保留原来的 `.git`。
+
+## 更新 CV
+
+网站导航栏提供 `CV (PDF)`，首页提供 `Download CV (PDF)`。当前文件使用你指定的 `Zheng Luo_CV_261109.pdf`，内容原样保留。
+
+以后只需把新 PDF 复制到 `assets/pdfs/`，统一命名为 `Zheng_Luo_CV.pdf` 并替换同名文件，然后运行 `python build.py`，检查网页，按原流程提交并推送。
+
+在原网站目录使用 PowerShell 时，本次文件也可以这样更新：
+
+```powershell
+Copy-Item -LiteralPath 'D:\JustNeuro\CVMaterial\Zheng Luo_CV_261109.pdf' -Destination 'D:\Code\easy-website\assets\pdfs\Zheng_Luo_CV.pdf' -Force
+python 'D:\Code\easy-website\build.py'
+```
+
+生成脚本会同步旧地址 `assets/pdfs/CV_Zheng_Luo_EN.pdf`，使以前分享的链接继续提供当前版本。导航和下载入口自动带有根据 PDF 内容生成的版本标记，因此替换 PDF 并重新生成后，访问者会请求新版文件。
+
+请把两个 PDF、`build.py` 和新生成的 HTML 一同提交。研究目标以后只需编辑 `pages/goals.md`；首页和 Interests 会使用同一份内容。
 
 ## 新增文章
 
@@ -82,6 +101,7 @@ Notes 用于保留观察、创作与开放问题；研究项目和长文应更�
 - 五个研究项目使用已核对材料，区分本人贡献、合作贡献与研究阶段。
 - 旧力学长文删除了未核实公式、缺陷材料表和超出证据的结论；阅读笔记核对了论文原文并保留双语。
 - 图片来自已有研究材料。旧图片、短札和原有 URL 均保留。
-- 旧 CV PDF 仍随原资源保留，但页面没有继续链接它；其中经历表述和稿件状态需要单独更新后，再恢复 CV 入口。
+- 首页新增研究双目标区域，Interests 区分两个目标的评价标准，并加入一个可收窄的起点问题。
+- CV 使用指定的 261109 版本，恢复导航与首页入口，保持旧 CV 地址可用。
 
 本次交付是原网站的可检查副本。D 盘原目录未被覆盖，线上网站未被更新。

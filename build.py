@@ -2,14 +2,24 @@
 """Build GitHub Pages HTML from editable pages/*.md and posts/*/*.md."""
 from html import escape
 from pathlib import Path
+from hashlib import sha256
+import shutil
 import re
 import markdown
 
 ROOT = Path(__file__).resolve().parent
 NAME = 'Zheng (Rose) Luo'
 EMAIL = 'rose.zheng.luo@gmail.com'
+CV_PATH = 'assets/pdfs/Zheng_Luo_CV.pdf'
+CV_LEGACY_PATH = 'assets/pdfs/CV_Zheng_Luo_EN.pdf'
 NAV = [('index.html', 'About'), ('projects.html', 'Research'),
        ('interests.html', 'Interests'), ('blog.html', 'Writing'), ('notes.html', 'Notes')]
+
+
+def cv_url(prefix=''):
+    # A stable filename with a content version avoids stale browser copies.
+    version = sha256((ROOT / CV_PATH).read_bytes()).hexdigest()[:12]
+    return f'{prefix}{CV_PATH}?v={version}'
 
 
 def read_md(path):
@@ -46,6 +56,7 @@ def render_md(body, prefix=''):
 def shell(title, content, active, prefix='', description='', math=False, lang='en'):
     links = ''.join(f'<a href="{prefix}{url}"' + (' aria-current="page"' if url == active else '')
                     + f'>{label}</a>' for url, label in NAV)
+    links += f'<a href="{cv_url(prefix)}" target="_blank" rel="noopener">CV <span class="file-label">(PDF)</span></a>'
     maths = r'''<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>''' if math else ''
     return f'''<!doctype html>
@@ -68,6 +79,27 @@ def write(path, html):
 def page(name):
     meta, body = read_md(ROOT / 'pages' / f'{name}.md')
     return meta, render_md(body)[0]
+
+
+def research_direction(detail=False):
+    meta, body = read_md(ROOT / 'pages' / 'goals.md')
+    chunks = re.split(r'^## (.+)\n', body, flags=re.M)
+    sections = {key: render_md(value.strip())[0]
+                for key, value in zip(chunks[1::2], chunks[2::2])}
+    columns = ''.join(
+        f'<div class="goal-column"><p class="eyebrow">{label}</p>'
+        f'<h3>{escape(meta[heading])}</h3>{sections[label]}</div>'
+        for label, heading in [('Scientific goal', 'scientific_heading'),
+                               ('Engineering goal', 'engineering_heading')]
+    )
+    destination = '#a-possible-starting-question' if detail else 'interests.html'
+    link = 'Explore a possible starting question' if detail else 'Explore my research interests'
+    return f'''<section class="research-direction" aria-labelledby="direction-title">
+<div class="direction-heading"><p class="eyebrow">{escape(meta['eyebrow'])}</p>
+<h2 id="direction-title">{escape(meta['title'])}</h2></div>
+<div class="goal-columns">{columns}</div>
+<div class="shared-approach">{sections['Shared approach']}
+<a class="textlink" href="{destination}">{link}</a></div></section>'''
 
 
 def project_card(item, compact=False):
@@ -117,6 +149,8 @@ def listing(items):
 
 
 def build_all():
+    # Preserve the previous public CV URL as an alias of the current file.
+    shutil.copyfile(ROOT / CV_PATH, ROOT / CV_LEGACY_PATH)
     collections = {}
     for kind in ('projects', 'blog', 'notes'):
         items = [build_post(path, kind) for path in sorted((ROOT / 'posts' / kind).glob('*.md'))]
@@ -134,8 +168,11 @@ def build_all():
     write('projects.html', html)
     write('research.html', html)
 
-    meta, body = page('interests')
-    content = f'<div class="interest-intro"><p class="eyebrow">{escape(meta["eyebrow"])}</p></div><article class="prose reading interests">{body}</article>'
+    meta, body = read_md(ROOT / 'pages' / 'interests.md')
+    introduction, questions = re.split(r'(?=^## )', body, maxsplit=1, flags=re.M)
+    content = f'<div class="page-title"><p class="eyebrow">{escape(meta["eyebrow"])}</p>{render_md(introduction)[0]}</div>'
+    content += research_direction(detail=True)
+    content += f'<article class="prose reading interests">{render_md(questions)[0]}</article>'
     write('interests.html', shell(meta['title'], content, 'interests.html', description=meta['description']))
 
     content = '<div class="page-title"><p class="eyebrow">Reading and research</p><h1>Writing</h1><p class="intro">Research explanations, reading notes and questions that grow out of them.</p></div>' + listing(blogs)
@@ -148,7 +185,7 @@ def build_all():
     body = body.replace('<p>', '<p class="lead">', 1)
     hero = f'''<section class="hero"><div class="hero-layout"><div><p class="eyebrow">{escape(meta['eyebrow'])}</p>{body}</div>
 <img class="portrait" src="assets/images/MyPhoto.jpg" alt="Zheng Luo"></div>
-<div class="actions"><a class="button" href="interests.html">Research interests</a><a href="projects.html">Explore my research</a><a href="mailto:{EMAIL}">Get in touch</a></div></section>'''
+<div class="actions"><a class="button" href="interests.html">Research interests</a><a href="{cv_url()}" download="Zheng_Luo_CV.pdf">Download CV (PDF)</a><a href="projects.html">Explore my research</a><a href="mailto:{EMAIL}">Get in touch</a></div></section>'''
     selected = '<section aria-labelledby="selected-heading"><div class="section-title"><h2 id="selected-heading">Selected research</h2><a class="textlink" href="projects.html">All projects</a></div>'
     if projects:
         first = projects[0]
@@ -156,8 +193,8 @@ def build_all():
     by_slug = {Path(i['link']).stem: i for i in projects}
     selected += '<div class="research-pair">' + ''.join(project_card(by_slug[slug], True) for slug in ('neuroeff', 'polymer-network-phase-diagram') if slug in by_slug) + '</div></section>'
     writing_links = ''.join(f'<li><a href="{i["link"]}">{escape(i["title"])}</a></li>' for i in blogs[:2])
-    below = f'''<section class="below"><div><h2>Two connected ambitions</h2><p>Understanding how brains compute, and testing whether those insights can help artificial systems learn and adapt more effectively.</p><p><a href="interests.html">Questions and approaches I want to pursue</a></p></div><div><h2>Writing and small discoveries</h2><ul>{writing_links}</ul><p><a href="notes.html">Personal notes, sketches and everyday observations</a></p></div></section>'''
-    write('index.html', shell('About', hero + selected + below, 'index.html', description=meta['description']))
+    below = f'''<section class="below"><div><h2>Research writing</h2><ul>{writing_links}</ul></div><div><h2>Small discoveries</h2><p>Observations, sketches and open questions recorded along the way.</p><p><a href="notes.html">Browse my personal notes</a></p></div></section>'''
+    write('index.html', shell('About', hero + research_direction() + selected + below, 'index.html', description=meta['description']))
     write('electrical-failure.html', shell('Electrical failure', '<div class="page-title"><h1>Electrical failure and defect tolerance</h1><p><a href="posts/projects/dielectric-breakdown-theory.html">Read the full research project</a></p></div>', 'projects.html'))
     print(f'Built home, research, interests, writing and notes; {len(projects)} projects, {len(blogs)} articles, {len(notes)} notes.')
 
