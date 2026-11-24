@@ -53,28 +53,22 @@ def render_md(body, prefix=''):
     return result, md.toc, bool(math)
 
 
-def shell(title, content, active, prefix='', description='', math=False, lang='en', home=False):
+def shell(title, content, active, prefix='', description='', math=False, lang='en'):
     links = ''.join(f'<a href="{prefix}{url}"' + (' aria-current="page"' if url == active else '')
                     + f'>{label}</a>' for url, label in NAV)
     links += f'<a href="{cv_url(prefix)}" target="_blank" rel="noopener">CV <span class="file-label">(PDF)</span></a>'
     maths = r'''<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>''' if math else ''
-    body_class = ' class="home-page"' if home else ''
-    decoration = '''<div class="home-textures" aria-hidden="true">
-<img class="home-texture home-texture--crack" src="assets/images/crack-mesh.png" alt="" width="3000" height="3000">
-<img class="home-texture home-texture--brain" src="assets/images/brain.png" alt="" width="1351" height="1224">
-</div>''' if home else ''
-    illustration_credit = '<span class="illustration-credit"><a href="posts/notes/2026-08-25-brain-sign-with-bo-wen.html">Brain illustration by Bo wen</a></span>' if home else ''
     return f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} | {NAME}</title><meta name="description" content="{escape(description, quote=True)}">
 <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/images/favicon-32x32.png">
 <link rel="apple-touch-icon" href="{prefix}assets/images/apple-touch-icon.png">
 <link rel="manifest" href="{prefix}site.webmanifest"><link rel="stylesheet" href="{prefix}css/style.css"><link rel="stylesheet" href="{prefix}css/content.css">{maths}</head>
-<body{body_class}>{decoration}<a class="skip-link" href="#main">Skip to content</a><div class="wrap">
+<body><a class="skip-link" href="#main">Skip to content</a><div class="wrap">
 <header><a class="brand" href="{prefix}index.html">{NAME}</a><nav aria-label="Main navigation">{links}</nav></header>
 <main id="main">{content}</main>
-<footer><span>{NAME}</span><a href="mailto:{EMAIL}">{EMAIL}</a><a href="{prefix}notes.html">Personal notes</a>{illustration_credit}</footer>
+<footer><span>{NAME}</span><a href="mailto:{EMAIL}">{EMAIL}</a><a href="{prefix}notes.html">Personal notes</a></footer>
 </div></body></html>\n'''
 
 
@@ -200,7 +194,7 @@ def build_all():
     selected += '<div class="research-pair">' + ''.join(project_card(by_slug[slug], True) for slug in ('neuroeff', 'polymer-network-phase-diagram') if slug in by_slug) + '</div></section>'
     writing_links = ''.join(f'<li><a href="{i["link"]}">{escape(i["title"])}</a></li>' for i in blogs[:2])
     below = f'''<section class="below"><div><h2>Research writing</h2><ul>{writing_links}</ul></div><div><h2>Small discoveries</h2><p>Observations, sketches and open questions recorded along the way.</p><p><a href="notes.html">Browse my personal notes</a></p></div></section>'''
-    write('index.html', shell('About', hero + research_direction() + selected + below, 'index.html', description=meta['description'], home=True))
+    write('index.html', shell('About', hero + research_direction() + selected + below, 'index.html', description=meta['description']))
     write('electrical-failure.html', shell('Electrical failure', '<div class="page-title"><h1>Electrical failure and defect tolerance</h1><p><a href="posts/projects/dielectric-breakdown-theory.html">Read the full research project</a></p></div>', 'projects.html'))
     print(f'Built home, research, interests, writing and notes; {len(projects)} projects, {len(blogs)} articles, {len(notes)} notes.')
 
