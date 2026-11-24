@@ -30,3 +30,5 @@ The broader project was subsequently reported in:
 Lu, J. G., Song, L. L., & Zhang, L. D. (2025). *Cultural tendencies in generative AI*. Nature Human Behaviour, 9, 2360–2369.
 
 [Read the related publication](https://doi.org/10.1038/s41562-025-02242-1).
+
+See [Figure 1 in the publication](https://www.nature.com/articles/s41562-025-02242-1#Fig1) for comparisons of GPT's social-orientation responses to Chinese- and English-language prompts across four measures.

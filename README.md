@@ -89,6 +89,12 @@ tags: Learning · Research notes
 
 带图注的研究图可以保留现有 `<figure>` 格式，其余内容用普通 Markdown 即可。复制同目录文章中的图片路径最方便。
 
+## 首页暗纹与项目图片
+
+首页继续使用原有的 `assets/images/crack-mesh.png` 和 `assets/images/brain.png`，作为两侧的淡色暗纹。原图未修改；位置、透明度和渐隐效果在 `css/content.css` 的 `.home-texture` 样式中调整。屏幕宽度不超过 800px 时隐藏暗纹，保持手机阅读清晰。首页页脚保留插画作者 Bo wen 的署名，并链接到原来的创作短札。
+
+星形胶质细胞项目使用原结题报告的完整方程表：`assets/images/research/astrocyte-equations.png`。Research 列表显示预览，项目详情可点击查看原尺寸。LLM 项保留文字介绍，详情页提供相关论文 Figure 1 的来源链接。
+
 ## 草稿与历史内容
 
 `draft: true` 会阻止文章出现在列表中，并移除这篇文章旧的生成 HTML。Markdown 仍在仓库中：**公开 GitHub 仓库里的 Markdown 不是私人存储空间**。真正不准备公开的内容应留在仓库之外。

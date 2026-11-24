@@ -6,6 +6,8 @@ excerpt: A self-initiated modelling project comparing candidate explanations of 
 tags: Astrocytes · AQP4 · Potassium dynamics · ODE–PDE modelling
 period: 2020–2021
 order: 3
+image: assets/images/research/astrocyte-equations.png
+image_alt: Coupled equations for potassium transport, osmolarity and volume dynamics in the astrocyte model.
 status: Earlier computational research · Conference presentation
 ---
 
@@ -22,6 +24,13 @@ The project asked how changes in water permeability, neuronal potassium release 
 ## Extending the computational setting
 
 I extended a published astrocyte model to a one-dimensional chain and implemented coupled ordinary and partial differential equations in MATLAB. Controlled simulations provided a way to vary candidate factors and compare their consequences within the model's assumptions.
+
+<figure class="equation-figure">
+  <a href="/assets/images/research/astrocyte-equations.png" target="_blank" rel="noopener" aria-label="Open the complete model equations at full resolution">
+    <img src="/assets/images/research/astrocyte-equations.png" alt="Original equation table from my project report, linking membrane potential, potassium and water fluxes, spatial diffusion, osmolarity and cell-volume dynamics, with boundary conditions." loading="lazy" width="1312" height="1186">
+  </a>
+  <figcaption>The coupled model, reproduced from my original project report. The equations connect potassium transport, osmolarity and volume dynamics; boundary conditions define exchange across the modelled space. My work extended a published model and implemented the coupled system in MATLAB. <a href="/assets/images/research/astrocyte-equations.png" target="_blank" rel="noopener">View the full-size equation table</a>.</figcaption>
+</figure>
 
 The chain formulation allowed spatial relationships to enter the question, but remained a simplified description. In particular, the work did not implement the complete set of potassium-return and spatial-buffering processes. These omissions matter when relating the simulations to physiological clearance.
 
